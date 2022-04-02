@@ -24,7 +24,6 @@ export default {
 
 <style scoped>
 .palette {
-  background-color: rgb(230, 227, 227);
   width: 300px;
   padding: 10px 10px;
   display: flex;

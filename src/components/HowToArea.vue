@@ -29,7 +29,6 @@ export default {
 
 <style scoped>
 .wrapper {
-  background-color: rgb(230, 227, 227);
   width: 450px;
   height: 230px;
   overflow-y: scroll;
