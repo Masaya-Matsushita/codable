@@ -11,7 +11,11 @@
         }"
       />
     </div>
-    <!-- <input type="range" min="0" max="1" step="0.01" v-model="opaValue" /> -->
+    <OpacityBar
+      class="opacity-bar"
+      :passOpaValue="opaValue"
+      @update:opacity="updateOpacity"
+    />
     <SampleArea class="sample" :passSample="sample" />
   </div>
 </template>
@@ -20,23 +24,28 @@
 import EditorArea from "@/components/EditorArea.vue"
 import CanvasArea from "@/components/CanvasArea.vue"
 import SampleArea from "@/components/SampleArea.vue"
+import OpacityBar from "@/components/OpacityBar.vue"
 
 export default {
   components: {
     EditorArea,
     CanvasArea,
     SampleArea,
+    OpacityBar,
   },
   data() {
     return {
       code: "aiueo",
       sample: "akstn",
-      // opaValue: 0.5,
+      opaValue: 0.5,
     }
   },
   methods: {
     updateContent(value) {
       this.code = value
+    },
+    updateOpacity(value) {
+      this.opaValue = value
     },
   },
 }
@@ -61,5 +70,8 @@ export default {
   width: 300px;
   background-color: #fff;
   border: 1px solid #303030;
+}
+.opacity-bar {
+  width: 300px;
 }
 </style>
