@@ -161,8 +161,8 @@ export default {
 }
 .title__text {
   font-size: 1.7rem;
-  margin: 0 20px 130px 20px;
-  animation: logoAnimation 1.5s;
+  margin: 0 20px 100px 20px;
+  animation: subAnimation 2.3s;
 }
 .content__wrapper {
   display: flex;
@@ -174,7 +174,7 @@ export default {
   padding: 35px 0;
   margin: 50px 40px;
   position: relative;
-  animation: subAnimation 3s;
+  animation: subAnimation 2.5s;
 }
 .content__title {
   font-size: 2rem;
