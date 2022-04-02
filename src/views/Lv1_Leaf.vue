@@ -18,6 +18,9 @@
       @update:opacity="updateOpacity"
     />
     <SampleArea class="sample" :passSample="sample" />
+
+    <!-- ボタンはコンポーネント化しないほうが良いかも？
+    https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
     <button @click="finishGame">{{ finish }}</button>
   </div>
 </template>
