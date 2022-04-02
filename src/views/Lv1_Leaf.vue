@@ -18,6 +18,7 @@
       @update:opacity="updateOpacity"
     />
     <SampleArea class="sample" :passSample="sample" />
+    <button @click="finishGame">{{ finish }}</button>
   </div>
 </template>
 
@@ -26,6 +27,8 @@ import EditorArea from "@/components/EditorArea.vue"
 import CanvasArea from "@/components/CanvasArea.vue"
 import SampleArea from "@/components/SampleArea.vue"
 import OpacityBar from "@/components/OpacityBar.vue"
+import { doc, setDoc } from "firebase/firestore"
+import { db } from "../firebase"
 
 export default {
   components: {
@@ -40,6 +43,7 @@ export default {
       code: "aiueo",
       sample: "akstn",
       opaValue: 0.5,
+      finish: "完成",
     }
   },
   methods: {
@@ -48,6 +52,15 @@ export default {
     },
     updateOpacity(value) {
       this.opaValue = value
+    },
+    finishGame() {
+      setDoc(doc(db, "Games", this.title), {
+        code: this.code,
+      })
+      this.$router.push({
+        name: "feedback",
+        params: { passContentTitle: this.title },
+      })
     },
   },
 }
