@@ -149,7 +149,7 @@ export default {
   text-decoration: underline 4px;
   animation: logoAnimation 1.5s;
 }
-@keyframes subAnimation {
+/* @keyframes subAnimation {
   0% {
     transform: translateY(10px);
     opacity: 0;
@@ -158,11 +158,11 @@ export default {
     transform: translateY(10px);
     opacity: 0;
   }
-}
+} */
 .title__text {
   font-size: 1.7rem;
   margin: 0 20px 100px 20px;
-  animation: subAnimation 2.3s;
+  /* animation: subAnimation 2.3s; */
 }
 .content__wrapper {
   display: flex;
@@ -174,7 +174,7 @@ export default {
   padding: 35px 0;
   margin: 50px 40px;
   position: relative;
-  animation: subAnimation 2.5s;
+  /* animation: subAnimation 2.5s; */
 }
 .content__title {
   font-size: 2rem;

@@ -12,6 +12,7 @@ import Ex_MonsterBall from "../views/Ex_MonsterBall.vue"
 import Ex_Frog from "../views/Ex_Frog.vue"
 import Ex_Guitar from "../views/Ex_Guitar.vue"
 import Ex_Gift from "../views/Ex_Gift.vue"
+import Feedback from "../views/FeedbackView.vue"
 
 const routes = [
   {
@@ -78,6 +79,12 @@ const routes = [
     path: "/Ex_Gift",
     name: "Ex_Gift",
     component: Ex_Gift,
+  },
+  {
+    path: "/feedback",
+    name: "feedback",
+    component: Feedback,
+    props: true,
   },
 ]
 
