@@ -1,5 +1,6 @@
 <template>
   <div class="view">
+    <div class="title">{{ title }}</div>
     <EditorArea class="editor" :passCode="code" @update:code="updateContent" />
     <div>
       <CanvasArea class="canvas" :reflectCode="code" />
@@ -35,6 +36,7 @@ export default {
   },
   data() {
     return {
+      title: "Lv.1 Leaf",
       code: "aiueo",
       sample: "akstn",
       opaValue: 0.5,
