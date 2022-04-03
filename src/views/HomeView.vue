@@ -96,9 +96,10 @@ export default {
 }
 .title__logo {
   font-size: 5rem;
-  margin: 80px 30px;
+  margin: 80px auto;
   letter-spacing: 0.1em;
   text-decoration: underline 4px;
+  white-space: nowrap;
   animation: logoAnimation 1.5s;
 }
 /* @keyframes subAnimation {
@@ -113,7 +114,7 @@ export default {
 } */
 .title__text {
   font-size: 1.7rem;
-  margin: 0 20px 100px 20px;
+  margin-bottom: 100px;
   /* animation: subAnimation 2.3s; */
 }
 .content__wrapper {
@@ -123,15 +124,15 @@ export default {
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
   border-radius: 5px;
-  padding: 35px 0;
   margin: 50px 40px;
+  padding: 35px 0;
   position: relative;
   /* animation: subAnimation 2.5s; */
 }
 .content__title {
   font-size: 2rem;
   position: absolute;
-  top: -1.3rem;
+  top: -18px;
   left: 3%;
   background: linear-gradient(rgb(250, 250, 240), rgb(253, 253, 250));
   padding: 0 1rem 0 1rem;
@@ -178,4 +179,44 @@ export default {
 .content__record:hover {
   color: #303030;
 } */
+
+@media screen and (max-width: 610px) {
+  .title__logo {
+    font-size: 4rem;
+  }
+  .title__text {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .title__logo {
+    font-size: 3rem;
+    margin: 50px auto;
+  }
+  .title__text {
+    font-size: 1.3rem;
+    margin-bottom: 70px;
+  }
+  .content__wrapper {
+    margin: 50px 25px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .title__logo {
+    font-size: 2.5rem;
+    margin: 40px auto;
+  }
+  .title__text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+  }
+  .content__wrapper {
+    margin: 50px 20px;
+  }
+  .content__title {
+    font-size: 1.5rem;
+  }
+}
 </style>

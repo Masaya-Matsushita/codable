@@ -87,6 +87,9 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 2rem;
+}
 .editor {
   height: 600px;
   width: 600px;
@@ -95,13 +98,14 @@ export default {
 .back {
   height: 350px;
   width: 350px;
-  border: 1px solid #303030;
+  outline: 1px solid #303030;
   padding: 10px;
+  overflow-x: scroll;
 }
 .sample-back {
   height: 350px;
   width: 350px;
-  border: 1px solid #303030;
+  outline: 1px solid #303030;
 }
 .opacity-bar {
   width: 350px;
