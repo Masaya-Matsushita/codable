@@ -22,8 +22,8 @@ export default {
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #008000;
     /*ここにコードを追加*/
   }

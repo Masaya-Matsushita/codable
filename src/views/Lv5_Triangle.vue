@@ -17,13 +17,13 @@ export default {
   },
   data() {
     return {
-      title: "Lv.1 Leaf",
+      title: "Lv.5 Triangle",
       code: `<div class="object"></div>
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #1e90ff;
     /*ここにコードを追加*/
   }
@@ -41,9 +41,9 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 150px solid #1e90ff;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid #1e90ff;
   }
     .sample-back{
     background-color: #fff0f5;

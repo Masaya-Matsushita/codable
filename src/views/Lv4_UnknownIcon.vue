@@ -22,8 +22,8 @@ export default {
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #808080;
     /*ここにコードを追加*/
   }
@@ -37,8 +37,8 @@ export default {
 <style>
       .sample-head {
         background-color: #808080;
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         position: relative;
         top: 50%;
         left: 50%;
@@ -48,8 +48,8 @@ export default {
       }
       .sample-body {
         background-color: #808080;
-        width: 180px;
-        height: 100px;
+        width: 200px;
+        height: 120px;
         position: relative;
         top: 50%;
         left: 50%;

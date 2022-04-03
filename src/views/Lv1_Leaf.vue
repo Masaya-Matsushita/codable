@@ -22,8 +22,8 @@ export default {
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #008000;
     /*ここにコードを追加*/
   }
@@ -35,10 +35,10 @@ export default {
 
 <style>
   .sample-object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #008000;
-    border-radius: 100px 0;
+    border-radius: 150px 0;
     position: relative;
     top: 50%;
     left: 50%;

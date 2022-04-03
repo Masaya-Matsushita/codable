@@ -22,8 +22,8 @@ export default {
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #40e0d0;
     /*ここにコードを追加*/
   }
@@ -36,8 +36,8 @@ export default {
 
 <style>
       .sample-object {
-        width: 100px;
-        height: 150px;
+        width: 130px;
+        height: 200px;
         background-color: #40e0d0;
         position: relative;
         top: 50%;
@@ -47,7 +47,7 @@ export default {
 
       .sample-object::before {
         content: "";
-        width: 100px;
+        width: 130px;
         height: 50px;
         background-color: #20b2aa;
         position: absolute;
@@ -58,11 +58,11 @@ export default {
 
       .sample-object::after {
         content: "";
-        width: 100px;
+        width: 130px;
         height: 50px;
         background-color: #40e0d0;
         position: absolute;
-        top: 120px;
+        top: 180px;
         left: 0;
         border-radius: 45%;
       }

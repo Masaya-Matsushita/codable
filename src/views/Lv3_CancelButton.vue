@@ -22,8 +22,8 @@ export default {
 
 <style>
   .object{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: #ff0000;
     /*ここにコードを追加*/
   }
@@ -39,8 +39,8 @@ export default {
 <style>
   .sample-object{
     background-color: #ff0000;
-    width: 180px;
-    height: 130px;
+    width: 230px;
+    height: 160px;
     position: relative;
     top: 50%;
     left: 50%;
@@ -49,8 +49,8 @@ export default {
   }
   .sample-bar1{
     background-color: #ffffff;
-    width: 20px;
-    height: 100px;
+    width: 25px;
+    height: 120px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -59,8 +59,8 @@ export default {
   }
   .sample-bar2{
     background-color: #ffffff;
-    width: 20px;
-    height: 100px;
+    width: 25px;
+    height: 120px;
     position: absolute;
     top: 50%;
     left: 50%;
