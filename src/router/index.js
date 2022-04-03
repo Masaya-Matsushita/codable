@@ -8,10 +8,6 @@ import Lv5_Triangle from "../views/Lv5_Triangle.vue"
 import Lv6_Infinity from "../views/Lv6_Infinity.vue"
 import Lv7_Diamond from "../views/Lv7_Diamond.vue"
 import Lv8_Star from "../views/Lv8_Star.vue"
-import Ex_MonsterBall from "../views/Ex_MonsterBall.vue"
-import Ex_Frog from "../views/Ex_Frog.vue"
-import Ex_Guitar from "../views/Ex_Guitar.vue"
-import Ex_Gift from "../views/Ex_Gift.vue"
 import Feedback from "../views/FeedbackView.vue"
 
 const routes = [
@@ -59,26 +55,6 @@ const routes = [
     path: "/Lv8_Star",
     name: "Lv8_Star",
     component: Lv8_Star,
-  },
-  {
-    path: "/Ex_MonsterBall",
-    name: "Ex_MonsterBall",
-    component: Ex_MonsterBall,
-  },
-  {
-    path: "/Ex_Frog",
-    name: "Ex_Frog",
-    component: Ex_Frog,
-  },
-  {
-    path: "/Ex_Guitar",
-    name: "Ex_Guitar",
-    component: Ex_Guitar,
-  },
-  {
-    path: "/Ex_Gift",
-    name: "Ex_Gift",
-    component: Ex_Gift,
   },
   {
     path: "/feedback",
