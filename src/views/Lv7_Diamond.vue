@@ -17,38 +17,48 @@ export default {
   },
   data() {
     return {
-      title: "Lv.1 Leaf",
+      title: "Lv.7 Diamond",
       code: `<div class="object"></div>
 
 <style>
   .object{
     width: 200px;
     height: 200px;
-    background-color: #008000;
+    background-color: #00bfff;
     /*ここにコードを追加*/
   }
   .back{
 
   }
 </style>`,
-      sample: `<div class="sample-object"></div>
+      sample: `<div class="sample-diamond__top"></div>
+      <div class="sample-diamond__bottom"></div>
 
 <style>
-  .sample-object{
-    width: 150px;
-    height: 150px;
-    background-color: #008000;
-    border-radius: 100px 0;
+  .sample-diamond__top {
+    width: 250px;
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -130%);
+    border-style: solid;
+    border-color: transparent transparent #00bfff transparent;
+    border-width: 0 60px 80px 60px;
   }
-  .sample-back{
-    background-color: #fafad7;
-    }
-</style>`,
-      colorCodes: ["#008000", "#fafad7"],
+  .sample-diamond__bottom {
+    width: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    border-style: solid;
+    border-color: #00bfff transparent transparent transparent;
+    border-width: 130px 125px 0 125px;
+  }
+  .sample-back {
+    background-color: #fffff0;
+    }`,
+      colorCodes: ["#00bfff", "#fffff0"],
     }
   },
   methods: {
