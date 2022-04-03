@@ -96,6 +96,7 @@ export default {
   height: 350px;
   width: 350px;
   border: 1px solid #303030;
+  padding: 10px;
 }
 .sample-back {
   height: 350px;
