@@ -7,16 +7,14 @@
     lang="html"
     theme="chrome"
   />
-  <div>
-    <CanvasArea class="back" :passCode="setCode" />
-    <SampleArea
-      class="sample-back"
-      :passSample="setSample"
-      :style="{
-        opacity: opaValue,
-      }"
-    />
-  </div>
+  <CanvasArea class="back" :passCode="setCode" />
+  <SampleArea
+    class="sample-back"
+    :passSample="setSample"
+    :style="{
+      opacity: opaValue,
+    }"
+  />
   <OpacityBar
     class="opacity-bar"
     :passOpaValue="opaValue"
@@ -26,7 +24,7 @@
   <HowToArea class="how-to" />
   <ColorPalette class="color-palette" :passColorCodes="setColorCodes" />
 
-  <!-- ボタンはコンポーネント化しないほうが良いかも？
+  <!-- ボタンがコンポーネント化できない
     https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
   <button class="finish-button" @click="finishGame">{{ finish }}</button>
 </template>
@@ -92,6 +90,7 @@ export default {
 .editor {
   height: 600px;
   width: 600px;
+  font-size: 1rem;
 }
 .back {
   height: 350px;
