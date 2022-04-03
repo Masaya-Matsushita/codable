@@ -8,9 +8,9 @@
     theme="chrome"
   />
   <div>
-    <CanvasArea class="canvas" :passCode="setCode" />
+    <CanvasArea class="back" :passCode="setCode" />
     <SampleArea
-      class="sample"
+      class="sample-back"
       :passSample="setSample"
       :style="{
         opacity: opaValue,
@@ -22,7 +22,7 @@
     :passOpaValue="opaValue"
     @update:opacity="updateOpacity"
   />
-  <SampleArea class="sample" :passSample="setSample" />
+  <SampleArea class="sample-back" :passSample="setSample" />
   <HowToArea class="how-to" />
   <ColorPalette class="color-palette" :passColorCodes="setColorCodes" />
 
@@ -93,16 +93,14 @@ export default {
   height: 600px;
   width: 600px;
 }
-.canvas {
+.back {
   height: 350px;
   width: 350px;
-  background-color: #fff;
   border: 1px solid #303030;
 }
-.sample {
+.sample-back {
   height: 350px;
   width: 350px;
-  background-color: #fff;
   border: 1px solid #303030;
 }
 .opacity-bar {
