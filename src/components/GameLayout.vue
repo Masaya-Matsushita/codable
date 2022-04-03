@@ -80,7 +80,7 @@ export default {
       // paramsはページのリロードで初期化されるため、次はqueryを使って書いてみたい
       this.$router.push({
         name: "feedback",
-        params: { passContentTitle: this.setTitle },
+        params: { passGameTitle: this.setTitle },
       })
     },
   },
