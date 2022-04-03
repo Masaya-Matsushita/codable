@@ -1,9 +1,9 @@
 <template>
-  <div v-html="reflectCode"></div>
+  <div v-html="passCode"></div>
 </template>
 
 <script>
 export default {
-  props: ["reflectCode"],
+  props: ["passCode"],
 }
 </script>
