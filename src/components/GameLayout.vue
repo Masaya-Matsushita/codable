@@ -77,6 +77,7 @@ export default {
       setDoc(doc(db, "Games", this.setTitle), {
         code: this.setCode,
       })
+      // paramsはページのリロードで初期化されるため、次はqueryを使って書いてみたい
       this.$router.push({
         name: "feedback",
         params: { passContentTitle: this.setTitle },
