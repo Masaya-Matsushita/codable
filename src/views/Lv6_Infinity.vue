@@ -17,38 +17,57 @@ export default {
   },
   data() {
     return {
-      title: "Lv.1 Leaf",
+      title: "Lv.6 Infinity",
       code: `<div class="object"></div>
 
 <style>
   .object{
     width: 200px;
     height: 200px;
-    background-color: #008000;
+    background-color: #8b008b;
     /*ここにコードを追加*/
   }
   .back{
 
   }
 </style>`,
-      sample: `<div class="sample-object"></div>
-
+      sample: `<div class="sample-infinity"></div>
 <style>
-  .sample-object{
-    width: 150px;
+  .sample-infinity {
+    width: 255px;
     height: 150px;
-    background-color: #008000;
-    border-radius: 100px 0;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .sample-back{
-    background-color: #fafad7;
+   .sample-infinity::before {
+    content: "";
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 25px solid #8b008b;
+    border-radius: 60px 60px 60px 0;
+    transform: rotate(-135deg);
+  }
+   .sample-infinity::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 25px solid #8b008b;
+    border-radius: 60px 60px 60px 0;
+    transform: rotate(45deg);
+  }
+    .sample-back{
+    background-color: #afeeee;
     }
 </style>`,
-      colorCodes: ["#008000", "#fafad7"],
+      colorCodes: ["#8b008b", "#afeeee"],
     }
   },
   methods: {

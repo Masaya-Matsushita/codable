@@ -36,7 +36,7 @@ export default {
 
 <style>
       .sample-object {
-        width: 130px;
+        width: 120px;
         height: 200px;
         background-color: #40e0d0;
         position: relative;
@@ -47,7 +47,7 @@ export default {
 
       .sample-object::before {
         content: "";
-        width: 130px;
+        width: 120px;
         height: 50px;
         background-color: #20b2aa;
         position: absolute;
@@ -58,7 +58,7 @@ export default {
 
       .sample-object::after {
         content: "";
-        width: 130px;
+        width: 120px;
         height: 50px;
         background-color: #40e0d0;
         position: absolute;
