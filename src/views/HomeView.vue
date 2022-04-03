@@ -2,7 +2,7 @@
   <div class="title__logo">{{ title.logo }}</div>
   <div class="title__text">{{ title.text }}</div>
   <div class="content__wrapper">
-    <span class="content__title">{{ contentTitle.normal }}</span>
+    <span class="content__title">{{ contentTitle }}</span>
     <router-link
       class="content__container"
       v-for="content in contents"
@@ -20,25 +20,6 @@
       </button> -->
     </router-link>
   </div>
-  <div class="content__wrapper">
-    <span class="content__title">{{ contentTitle.extra }}</span>
-    <router-link
-      class="content__container"
-      v-for="exContent in exContents"
-      :key="exContent.index"
-      :to="exContent.path"
-    >
-      <img
-        class="content__img"
-        :src="exContent.imagePath"
-        :alt="exContent.imageAlt"
-      />
-      <p class="content__text">{{ exContent.text }}</p>
-      <!-- <button class="content__record" @click="toRecord(exContent.text)">
-        {{ recordText }}
-      </button> -->
-    </router-link>
-  </div>
 </template>
 
 <script>
@@ -49,10 +30,7 @@ export default {
         logo: "CSS Gallary",
         text: "コードを書いて例題のイメージに近づけよう！( 全12ステージ )",
       },
-      contentTitle: {
-        normal: "Contents Lv.1~8",
-        extra: "Contents Extra",
-      },
+      contentTitle: "Contents Lv.1~8",
       recordText: "前回の記録",
       contents: [
         {
@@ -102,32 +80,6 @@ export default {
           imageAlt: "レベル8「Star」です。",
           text: "Star",
           path: "Lv8_Star",
-        },
-      ],
-      exContents: [
-        {
-          imagePath: require("@/assets/MonsterBallImg.jpg"),
-          imageAlt: "エクストラステージ「Monster Ball」です。",
-          text: "Monster Ball",
-          path: "Ex_MonsterBall",
-        },
-        {
-          imagePath: require("@/assets/FrogImg.jpg"),
-          imageAlt: "エクストラステージ「Frog」です。",
-          text: "Frog",
-          path: "Ex_Frog",
-        },
-        {
-          imagePath: require("@/assets/GuitarImg.jpg"),
-          imageAlt: "エクストラステージ「Guitar」です。",
-          text: "Guitar",
-          path: "Ex_Guitar",
-        },
-        {
-          imagePath: require("@/assets/GiftImg.jpg"),
-          imageAlt: "エクストラステージ「Gift」です。",
-          text: "Gift",
-          path: "Ex_Gift",
         },
       ],
     }
