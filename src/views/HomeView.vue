@@ -3,22 +3,23 @@
   <div class="title__text">{{ title.text }}</div>
   <div class="content__wrapper">
     <span class="content__title">{{ contentTitle }}</span>
-    <router-link
+    <div
       class="content__container"
       v-for="content in contents"
       :key="content.index"
-      :to="content.path"
     >
-      <img
-        class="content__img"
-        :src="content.imagePath"
-        :alt="content.imageAlt"
-      />
-      <p class="content__text">{{ content.text }}</p>
-      <!-- <button class="content__record" @click="toRecord(content.text)">
+      <router-link :to="content.path">
+        <img
+          class="content__img"
+          :src="content.imagePath"
+          :alt="content.imageAlt"
+        />
+        <p class="content__text">{{ content.text }}</p>
+      </router-link>
+      <button class="content__record" @click="toRecord(content.docName)">
         {{ recordText }}
-      </button> -->
-    </router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -28,7 +29,7 @@ export default {
     return {
       title: {
         logo: "CSS Gallary",
-        text: "コードを書いて例題のイメージに近づけよう！( 全12ステージ )",
+        text: "コードを書いて例題のイメージに近づけよう！( 全8ステージ )",
       },
       contentTitle: "Contents Lv.1~8",
       recordText: "前回の記録",
@@ -37,52 +38,68 @@ export default {
           imagePath: require("@/assets/LeafImg.jpg"),
           imageAlt: "レベル1「Leaf」です。",
           text: "Leaf",
-          path: "/Lv1_Leaf",
+          path: "Lv1_Leaf",
+          docName: "Leaf",
         },
         {
           imagePath: require("@/assets/SylinderImg.jpg"),
           imageAlt: "レベル2「Cylinder」です。",
           text: "Cylinder",
           path: "Lv2_Cylinder",
+          docName: "Cylinder",
         },
         {
           imagePath: require("@/assets/CancelButtonImg.jpg"),
           imageAlt: "レベル3「Cancel Button」です。",
           text: "Cancel Button",
           path: "Lv3_CancelButton",
+          docName: "CancelButton",
         },
         {
           imagePath: require("@/assets/UnknownIconImg.jpg"),
           imageAlt: "レベル4「Unknown Icon」です。",
           text: "Unknown Icon",
           path: "Lv4_UnknownIcon",
+          docName: "UnknownIcon",
         },
         {
           imagePath: require("@/assets/TriangleImg.jpg"),
           imageAlt: "レベル5「Triangle」です。",
           text: "Triangle",
           path: "Lv5_Triangle",
+          docName: "Triangle",
         },
         {
           imagePath: require("@/assets/InfinityImg.jpg"),
           imageAlt: "レベル6「Infinity」です。",
           text: "Infinity",
           path: "Lv6_Infinity",
+          docName: "Infinity",
         },
         {
           imagePath: require("@/assets/DiamondImg.jpg"),
           imageAlt: "レベル7「Diamond」です。",
           text: "Diamond",
           path: "Lv7_Diamond",
+          docName: "Diamond",
         },
         {
           imagePath: require("@/assets/StarImg.jpg"),
           imageAlt: "レベル8「Star」です。",
           text: "Star",
           path: "Lv8_Star",
+          docName: "Star",
         },
       ],
     }
+  },
+  methods: {
+    toRecord(docName) {
+      this.$router.push({
+        name: "record",
+        query: { stage: docName },
+      })
+    },
   },
 }
 </script>
@@ -96,9 +113,10 @@ export default {
 }
 .title__logo {
   font-size: 5rem;
-  margin: 80px 30px;
+  margin: 80px auto;
   letter-spacing: 0.1em;
   text-decoration: underline 4px;
+  white-space: nowrap;
   animation: logoAnimation 1.5s;
 }
 /* @keyframes subAnimation {
@@ -113,7 +131,7 @@ export default {
 } */
 .title__text {
   font-size: 1.7rem;
-  margin: 0 20px 100px 20px;
+  margin-bottom: 100px;
   /* animation: subAnimation 2.3s; */
 }
 .content__wrapper {
@@ -122,24 +140,28 @@ export default {
   flex-wrap: wrap;
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
-  border-radius: 5px;
-  padding: 35px 0;
+  border-radius: 10px;
   margin: 50px 40px;
+  padding: 35px 0;
   position: relative;
   /* animation: subAnimation 2.5s; */
+}
+.content__wrapper * {
+  text-decoration: none;
+  color: #303030;
 }
 .content__title {
   font-size: 2rem;
   position: absolute;
-  top: -1.3rem;
+  top: -18px;
   left: 3%;
   background: linear-gradient(rgb(250, 250, 240), rgb(253, 253, 250));
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
 }
 .content__container {
   border: 1px solid #303030;
   background-color: #fff;
-  margin: 30px 30px;
+  margin: 30px;
   border-radius: 5px;
   opacity: 0.9;
   transition: all 0.3s;
@@ -149,10 +171,7 @@ export default {
   opacity: 1;
   transform: scale(1.05, 1.05);
 }
-.content__container * {
-  color: #303030;
-  text-decoration: none;
-}
+
 .content__img {
   border: 1px solid #303030;
   border-radius: 5px;
@@ -165,17 +184,57 @@ export default {
   margin: 0;
   padding: 20px 0 60px 0;
 }
-/* .content__record {
-  text-decoration: underline;
+.content__record {
   position: absolute;
   bottom: 4%;
   transform: translate(-50%, 0);
   border: none;
-  background-color: #faffff;
+  text-decoration: underline;
   font-size: 1rem;
   color: #696969;
+  background-color: #fff;
 }
 .content__record:hover {
   color: #303030;
-} */
+}
+
+@media screen and (max-width: 610px) {
+  .title__logo {
+    font-size: 4rem;
+  }
+  .title__text {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .title__logo {
+    font-size: 3rem;
+    margin: 50px auto;
+  }
+  .title__text {
+    font-size: 1.3rem;
+    margin-bottom: 70px;
+  }
+  .content__wrapper {
+    margin: 50px 25px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .title__logo {
+    font-size: 2.5rem;
+    margin: 40px auto;
+  }
+  .title__text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+  }
+  .content__wrapper {
+    margin: 50px 20px;
+  }
+  .content__title {
+    font-size: 1.5rem;
+  }
+}
 </style>

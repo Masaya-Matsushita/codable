@@ -16,10 +16,10 @@ export default {
   data() {
     return {
       title: {
-        logo: "お疲れさまでした！",
-        text: "他のステージにも挑戦してみてね！",
+        logo: "前回の記録",
+        text: "エディタで書き変えられます。(保存はされません)",
       },
-      contentTitle: "今回の記録",
+      contentTitle: "前回の記録",
     }
   },
 }

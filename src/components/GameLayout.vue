@@ -50,7 +50,7 @@ export default {
     HowToArea,
     ColorPalette,
   },
-  props: ["setTitle", "setCode", "setSample", "setColorCodes"],
+  props: ["setTitle", "setDocName", "setCode", "setSample", "setColorCodes"],
   emits: ["returnCode"],
   data() {
     return {
@@ -74,12 +74,12 @@ export default {
       this.opaValue = value
     },
     finishGame() {
-      setDoc(doc(db, "Games", this.setTitle), {
+      setDoc(doc(db, "Games", this.setDocName), {
         code: this.setCode,
       })
       this.$router.push({
         name: "feedback",
-        params: { passContentTitle: this.setTitle },
+        query: { stage: this.setDocName },
       })
     },
   },
@@ -87,6 +87,9 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 2rem;
+}
 .editor {
   height: 600px;
   width: 600px;
@@ -95,13 +98,14 @@ export default {
 .back {
   height: 350px;
   width: 350px;
-  border: 1px solid #303030;
+  outline: 1px solid #303030;
   padding: 10px;
+  overflow-x: scroll;
 }
 .sample-back {
   height: 350px;
   width: 350px;
-  border: 1px solid #303030;
+  outline: 1px solid #303030;
 }
 .opacity-bar {
   width: 350px;

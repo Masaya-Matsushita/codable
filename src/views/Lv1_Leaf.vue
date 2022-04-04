@@ -1,6 +1,7 @@
 <template>
   <GameLayout
     :setTitle="title"
+    :setDocName="docName"
     :setCode="code"
     :setSample="sample"
     :setColorCodes="colorCodes"
@@ -18,6 +19,7 @@ export default {
   data() {
     return {
       title: "Lv.1 Leaf",
+      docName: "Leaf",
       code: `<div class="object"></div>
 
 <style>
