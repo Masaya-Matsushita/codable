@@ -50,7 +50,7 @@ export default {
     HowToArea,
     ColorPalette,
   },
-  props: ["setTitle", "setCode", "setSample", "setColorCodes"],
+  props: ["setTitle", "setDocName", "setCode", "setSample", "setColorCodes"],
   emits: ["returnCode"],
   data() {
     return {
@@ -74,12 +74,12 @@ export default {
       this.opaValue = value
     },
     finishGame() {
-      setDoc(doc(db, "Games", this.setTitle), {
+      setDoc(doc(db, "Games", this.setDocName), {
         code: this.setCode,
       })
       this.$router.push({
         name: "feedback",
-        query: { stage: this.setTitle },
+        query: { stage: this.setDocName },
       })
     },
   },

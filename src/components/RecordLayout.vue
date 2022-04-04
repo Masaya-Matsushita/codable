@@ -58,6 +58,7 @@ export default {
   max-width: 1300px;
   margin: 0 30px 50px 30px;
   padding: 50px 20px;
+  background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
   border-radius: 10px;
   position: relative;
