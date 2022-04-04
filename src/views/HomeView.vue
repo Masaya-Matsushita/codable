@@ -202,7 +202,7 @@ export default {
   color: #303030;
 }
 
-@media screen and (max-width: 610px) {
+@media (max-width: 610px) {
   .title__logo {
     font-size: 4rem;
   }
@@ -211,7 +211,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 540px) {
+@media (max-width: 540px) {
   .title__logo {
     font-size: 3rem;
     margin: 50px auto;
@@ -225,7 +225,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 415px) {
+@media (max-width: 415px) {
   .title__logo {
     font-size: 2.5rem;
     margin: 40px auto;

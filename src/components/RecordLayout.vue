@@ -103,37 +103,37 @@ export default {
   margin: 0 200px 50px auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .finish-button {
     margin: 0 auto 50px auto;
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media (max-width: 1080px) {
   .editor {
     width: 520px;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .editor {
     width: 450px;
   }
 }
 
-@media screen and (max-width: 930px) {
+@media (max-width: 930px) {
   .editor {
     width: 400px;
   }
 }
 
-@media screen and (max-width: 866px) {
+@media (max-width: 866px) {
   .editor {
     width: 500px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media (max-width: 550px) {
   .title__logo {
     font-size: 2.5rem;
   }
@@ -142,7 +142,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 470px) {
+@media (max-width: 470px) {
   .content__container {
     margin: 35px 15px;
     padding: 35px 10px;
@@ -154,7 +154,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 400px) {
   .title__logo {
     font-size: 2.2rem;
     margin: 25px auto;
@@ -168,7 +168,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 350px) {
+@media (max-width: 350px) {
   .title__logo {
     font-size: 1.8rem;
     margin: 20px auto;
