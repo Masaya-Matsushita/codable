@@ -17,7 +17,8 @@ export default {
     return {
       title: {
         logo: "前回の記録",
-        text: "エディタで書き変えられます。(保存はされません)",
+        mainText: "エディタで書き変えられます。",
+        subText: "(保存はされません)",
       },
       contentTitle: "前回の記録",
     }

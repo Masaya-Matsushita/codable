@@ -1,6 +1,7 @@
 <template>
   <div class="title__logo">{{ setTitle.logo }}</div>
-  <div class="title__text">{{ setTitle.text }}</div>
+  <span class="title__text">{{ setTitle.mainText }}</span>
+  <span class="title__text title__text-sub">{{ setTitle.subText }}</span>
   <div class="content__container">
     <div class="content__title">{{ setContentTitle }}</div>
     <VAceEditor
@@ -52,11 +53,13 @@ export default {
 }
 .title__text {
   font-size: 2rem;
-  margin-bottom: 50px;
+}
+.title__text-sub {
+  white-space: nowrap;
 }
 .content__container {
   max-width: 1300px;
-  margin: 0 30px 50px 30px;
+  margin: 50px 30px;
   padding: 50px 20px;
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
@@ -141,7 +144,7 @@ export default {
 
 @media screen and (max-width: 470px) {
   .content__container {
-    margin: 0 15px 30px 15px;
+    margin: 35px 15px;
     padding: 35px 10px;
   }
   .finish-button {
@@ -165,7 +168,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 350px) {
   .title__logo {
     font-size: 1.8rem;
     margin: 20px auto;

@@ -17,7 +17,8 @@ export default {
     return {
       title: {
         logo: "お疲れさまでした！",
-        text: "他のステージにも挑戦してみてね！",
+        mainText: "他のステージにも挑戦してみてね！",
+        subText: "",
       },
       contentTitle: "今回の記録",
     }
