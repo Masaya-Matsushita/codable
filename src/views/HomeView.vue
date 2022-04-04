@@ -3,22 +3,23 @@
   <div class="title__text">{{ title.text }}</div>
   <div class="content__wrapper">
     <span class="content__title">{{ contentTitle }}</span>
-    <router-link
+    <div
       class="content__container"
       v-for="content in contents"
       :key="content.index"
-      :to="content.path"
     >
-      <img
-        class="content__img"
-        :src="content.imagePath"
-        :alt="content.imageAlt"
-      />
-      <p class="content__text">{{ content.text }}</p>
+      <router-link :to="content.path">
+        <img
+          class="content__img"
+          :src="content.imagePath"
+          :alt="content.imageAlt"
+        />
+        <p class="content__text">{{ content.text }}</p>
+      </router-link>
       <button class="content__record" @click="toRecord(content.docName)">
         {{ recordText }}
       </button>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -45,7 +46,7 @@ export default {
           imageAlt: "レベル2「Cylinder」です。",
           text: "Cylinder",
           path: "Lv2_Cylinder",
-          docName: "Lv2. Cylinder",
+          docName: "Lv.2 Cylinder",
         },
         {
           imagePath: require("@/assets/CancelButtonImg.jpg"),
@@ -91,6 +92,14 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    toRecord(docName) {
+      this.$router.push({
+        name: "record",
+        query: { stage: docName },
+      })
+    },
   },
 }
 </script>
