@@ -15,9 +15,9 @@
         :alt="content.imageAlt"
       />
       <p class="content__text">{{ content.text }}</p>
-      <!-- <button class="content__record" @click="toRecord(content.text)">
+      <button class="content__record" @click="toRecord(content.docName)">
         {{ recordText }}
-      </button> -->
+      </button>
     </router-link>
   </div>
 </template>
@@ -37,49 +37,57 @@ export default {
           imagePath: require("@/assets/LeafImg.jpg"),
           imageAlt: "レベル1「Leaf」です。",
           text: "Leaf",
-          path: "/Lv1_Leaf",
+          path: "Lv1_Leaf",
+          docName: "Lv.1 Leaf",
         },
         {
           imagePath: require("@/assets/SylinderImg.jpg"),
           imageAlt: "レベル2「Cylinder」です。",
           text: "Cylinder",
           path: "Lv2_Cylinder",
+          docName: "Lv2. Cylinder",
         },
         {
           imagePath: require("@/assets/CancelButtonImg.jpg"),
           imageAlt: "レベル3「Cancel Button」です。",
           text: "Cancel Button",
           path: "Lv3_CancelButton",
+          docName: "Lv.3 Cancel Button",
         },
         {
           imagePath: require("@/assets/UnknownIconImg.jpg"),
           imageAlt: "レベル4「Unknown Icon」です。",
           text: "Unknown Icon",
           path: "Lv4_UnknownIcon",
+          docName: "Lv.4 Unknown Icon",
         },
         {
           imagePath: require("@/assets/TriangleImg.jpg"),
           imageAlt: "レベル5「Triangle」です。",
           text: "Triangle",
           path: "Lv5_Triangle",
+          docName: "Lv.5 Triangle",
         },
         {
           imagePath: require("@/assets/InfinityImg.jpg"),
           imageAlt: "レベル6「Infinity」です。",
           text: "Infinity",
           path: "Lv6_Infinity",
+          docName: "Lv.6 Infinity",
         },
         {
           imagePath: require("@/assets/DiamondImg.jpg"),
           imageAlt: "レベル7「Diamond」です。",
           text: "Diamond",
           path: "Lv7_Diamond",
+          docName: "Lv7 Diamond",
         },
         {
           imagePath: require("@/assets/StarImg.jpg"),
           imageAlt: "レベル8「Star」です。",
           text: "Star",
           path: "Lv8_Star",
+          docName: "Lv.8 Star",
         },
       ],
     }
@@ -123,11 +131,15 @@ export default {
   flex-wrap: wrap;
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 50px 40px;
   padding: 35px 0;
   position: relative;
   /* animation: subAnimation 2.5s; */
+}
+.content__wrapper * {
+  text-decoration: none;
+  color: #303030;
 }
 .content__title {
   font-size: 2rem;
@@ -135,12 +147,12 @@ export default {
   top: -18px;
   left: 3%;
   background: linear-gradient(rgb(250, 250, 240), rgb(253, 253, 250));
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
 }
 .content__container {
   border: 1px solid #303030;
   background-color: #fff;
-  margin: 30px 30px;
+  margin: 30px;
   border-radius: 5px;
   opacity: 0.9;
   transition: all 0.3s;
@@ -150,10 +162,7 @@ export default {
   opacity: 1;
   transform: scale(1.05, 1.05);
 }
-.content__container * {
-  color: #303030;
-  text-decoration: none;
-}
+
 .content__img {
   border: 1px solid #303030;
   border-radius: 5px;
@@ -166,19 +175,19 @@ export default {
   margin: 0;
   padding: 20px 0 60px 0;
 }
-/* .content__record {
-  text-decoration: underline;
+.content__record {
   position: absolute;
   bottom: 4%;
   transform: translate(-50%, 0);
   border: none;
-  background-color: #faffff;
+  text-decoration: underline;
   font-size: 1rem;
   color: #696969;
+  background-color: #fff;
 }
 .content__record:hover {
   color: #303030;
-} */
+}
 
 @media screen and (max-width: 610px) {
   .title__logo {

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import HomeView from "../views/HomeView.vue"
+import Home from "../views/HomeView.vue"
 import Lv1_Leaf from "../views/Lv1_Leaf.vue"
 import Lv2_Cylinder from "../views/Lv2_Cylinder.vue"
 import Lv3_CancelButton from "../views/Lv3_CancelButton.vue"
@@ -9,12 +9,13 @@ import Lv6_Infinity from "../views/Lv6_Infinity.vue"
 import Lv7_Diamond from "../views/Lv7_Diamond.vue"
 import Lv8_Star from "../views/Lv8_Star.vue"
 import Feedback from "../views/FeedbackView.vue"
+import Record from "../views/RecordView.vue"
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: Home,
   },
   {
     path: "/Lv1_Leaf",
@@ -61,6 +62,11 @@ const routes = [
     name: "feedback",
     component: Feedback,
     props: true,
+  },
+  {
+    path: "/record",
+    name: "record",
+    component: Record,
   },
 ]
 
