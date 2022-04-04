@@ -28,7 +28,7 @@ export default {
     return {
       title: {
         logo: "CSS Gallary",
-        text: "コードを書いて例題のイメージに近づけよう！( 全12ステージ )",
+        text: "コードを書いて例題のイメージに近づけよう！( 全8ステージ )",
       },
       contentTitle: "Contents Lv.1~8",
       recordText: "前回の記録",
