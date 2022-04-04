@@ -61,7 +61,6 @@ const routes = [
     path: "/feedback",
     name: "feedback",
     component: Feedback,
-    props: true,
   },
   {
     path: "/record",

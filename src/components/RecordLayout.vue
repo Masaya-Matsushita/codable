@@ -25,7 +25,7 @@ export default {
   components: {
     VAceEditor,
   },
-  props: ["setTitle", "setContentTitle", "setGameTitle"],
+  props: ["setTitle", "setContentTitle", "setStage"],
   data() {
     return {
       record: {},
@@ -33,7 +33,7 @@ export default {
     }
   },
   created() {
-    getDoc(doc(db, "Games", this.setGameTitle)).then((snapshot) => {
+    getDoc(doc(db, "Games", this.setStage)).then((snapshot) => {
       this.record = snapshot.data()
     })
   },

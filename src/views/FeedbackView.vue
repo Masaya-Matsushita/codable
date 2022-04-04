@@ -2,7 +2,7 @@
   <RecordLayout
     :setTitle="title"
     :setContentTitle="contentTitle"
-    :setGameTitle="passGameTitle"
+    :setStage="this.$route.query.stage"
   />
 </template>
 
@@ -13,7 +13,6 @@ export default {
   components: {
     RecordLayout,
   },
-  props: ["passGameTitle"],
   data() {
     return {
       title: {
