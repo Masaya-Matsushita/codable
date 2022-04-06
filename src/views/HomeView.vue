@@ -1,6 +1,7 @@
 <template>
   <div class="title__logo">{{ title.logo }}</div>
-  <div class="title__text">{{ title.text }}</div>
+  <span class="title__text">{{ title.mainText }}</span>
+  <span class="title__text title__text-sub">{{ title.subText }}</span>
   <div class="content__wrapper">
     <span class="content__title">{{ contentTitle }}</span>
     <div
@@ -29,7 +30,8 @@ export default {
     return {
       title: {
         logo: "CSS Gallary",
-        text: "コードを書いて例題のイメージに近づけよう！( 全8ステージ )",
+        mainText: "コードを書いて例題のイメージに近づけよう！",
+        subText: "( 全8ステージ )",
       },
       contentTitle: "Contents Lv.1~8",
       recordText: "前回の記録",
@@ -130,9 +132,11 @@ export default {
   }
 } */
 .title__text {
-  font-size: 1.7rem;
-  margin-bottom: 100px;
+  font-size: 1.5rem;
   /* animation: subAnimation 2.3s; */
+}
+.title__text-sub {
+  white-space: nowrap;
 }
 .content__wrapper {
   display: flex;
@@ -141,7 +145,7 @@ export default {
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
   border-radius: 10px;
-  margin: 50px 40px;
+  margin: 100px 40px;
   padding: 35px 0;
   position: relative;
   /* animation: subAnimation 2.5s; */
@@ -198,16 +202,13 @@ export default {
   color: #303030;
 }
 
-@media screen and (max-width: 610px) {
+@media (max-width: 610px) {
   .title__logo {
     font-size: 4rem;
   }
-  .title__text {
-    font-size: 1.5rem;
-  }
 }
 
-@media screen and (max-width: 540px) {
+@media (max-width: 540px) {
   .title__logo {
     font-size: 3rem;
     margin: 50px auto;
@@ -221,7 +222,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 415px) {
+@media (max-width: 415px) {
   .title__logo {
     font-size: 2.5rem;
     margin: 40px auto;

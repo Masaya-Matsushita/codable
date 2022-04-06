@@ -1,6 +1,7 @@
 <template>
   <div class="title__logo">{{ setTitle.logo }}</div>
-  <div class="title__text">{{ setTitle.text }}</div>
+  <span class="title__text">{{ setTitle.mainText }}</span>
+  <span class="title__text title__text-sub">{{ setTitle.subText }}</span>
   <div class="content__container">
     <div class="content__title">{{ setContentTitle }}</div>
     <VAceEditor
@@ -52,11 +53,13 @@ export default {
 }
 .title__text {
   font-size: 2rem;
-  margin-bottom: 50px;
+}
+.title__text-sub {
+  white-space: nowrap;
 }
 .content__container {
   max-width: 1300px;
-  margin: 0 30px 50px 30px;
+  margin: 50px 30px;
   padding: 50px 20px;
   background-color: rgb(253, 253, 250);
   border: 1px solid #303030;
@@ -87,7 +90,6 @@ export default {
   outline: 1px solid #303030;
   padding: 10px;
   margin-bottom: 50px;
-  overflow-x: scroll;
 }
 .router {
   text-decoration: none;
@@ -100,37 +102,37 @@ export default {
   margin: 0 200px 50px auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .finish-button {
     margin: 0 auto 50px auto;
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media (max-width: 1080px) {
   .editor {
     width: 520px;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .editor {
     width: 450px;
   }
 }
 
-@media screen and (max-width: 930px) {
+@media (max-width: 930px) {
   .editor {
     width: 400px;
   }
 }
 
-@media screen and (max-width: 866px) {
+@media (max-width: 866px) {
   .editor {
     width: 500px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media (max-width: 550px) {
   .title__logo {
     font-size: 2.5rem;
   }
@@ -139,9 +141,9 @@ export default {
   }
 }
 
-@media screen and (max-width: 470px) {
+@media (max-width: 470px) {
   .content__container {
-    margin: 0 15px 30px 15px;
+    margin: 35px 15px;
     padding: 35px 10px;
   }
   .finish-button {
@@ -151,7 +153,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 400px) {
   .title__logo {
     font-size: 2.2rem;
     margin: 25px auto;
@@ -165,7 +167,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 340px) {
+@media (max-width: 350px) {
   .title__logo {
     font-size: 1.8rem;
     margin: 20px auto;

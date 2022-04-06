@@ -24,8 +24,10 @@ export default {
 
 <style scoped>
 .palette {
-  width: 300px;
+  width: 350px;
   padding: 10px 10px;
+  margin-top: 15px;
+  background-color: #d5d4d484;
   display: flex;
   align-items: center;
   flex-wrap: wrap;

@@ -1,7 +1,21 @@
 <template>
-  <nav><router-link to="/">Home</router-link></nav>
+  <nav>
+    <div class="logo">{{ logo }}</div>
+    <button class="loggin-btn">{{ loggin }}</button>
+  </nav>
   <router-view />
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      logo: "CSS Gallay",
+      loggin: "まずはログイン",
+    }
+  },
+}
+</script>
 
 <style>
 html {
@@ -16,7 +30,7 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(250, 250, 240);
+  background-color: #fafaf0;
 }
 
 #app {
@@ -28,16 +42,75 @@ body {
 }
 
 nav {
-  padding: 30px;
-  background-color: rgb(25, 50, 80);
+  height: 80px;
+  background-color: rgb(32, 59, 92);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav a {
-  font-weight: bold;
-  color: #303030;
+.logo {
+  font-size: 2.3rem;
+  color: #fafaf0;
+  margin-left: 50px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.loggin-btn {
+  font-size: 1rem;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin-right: 50px;
+}
+
+@media (max-width: 800px) {
+  .logo {
+    font-size: 2rem;
+    color: #fafaf0;
+    margin-left: 40px;
+  }
+
+  .loggin-btn {
+    padding: 8px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.7rem;
+    color: #fafaf0;
+    margin-left: 30px;
+  }
+
+  .loggin-btn {
+    font-size: 0.9rem;
+    padding: 7px 20px;
+    margin-right: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo {
+    font-size: 1.6rem;
+    color: #fafaf0;
+    margin-left: 20px;
+  }
+
+  .loggin-btn {
+    padding: 5px 15px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo {
+    font-size: 1.4rem;
+    color: #fafaf0;
+    margin-left: 10px;
+  }
+
+  .loggin-btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+  }
 }
 </style>
