@@ -61,6 +61,7 @@ const routes = [
     path: "/feedback",
     name: "feedback",
     component: Feedback,
+    props: true,
   },
   {
     path: "/record",
@@ -72,6 +73,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 export default router

@@ -109,7 +109,7 @@ export default {
 <style scoped>
 @keyframes logoAnimation {
   0% {
-    letter-spacing: 0.2em;
+    letter-spacing: 0.17em;
     opacity: 0;
   }
 }
@@ -119,21 +119,21 @@ export default {
   letter-spacing: 0.1em;
   text-decoration: underline 4px;
   white-space: nowrap;
-  animation: logoAnimation 1.5s;
+  animation: logoAnimation 1s;
 }
-/* @keyframes subAnimation {
+@keyframes subAnimation {
   0% {
-    transform: translateY(10px);
+    transform: translateY(5px);
     opacity: 0;
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(5px);
     opacity: 0;
   }
-} */
+}
 .title__text {
   font-size: 1.5rem;
-  /* animation: subAnimation 2.3s; */
+  animation: subAnimation 2s;
 }
 .title__text-sub {
   white-space: nowrap;
@@ -148,7 +148,7 @@ export default {
   margin: 100px 40px;
   padding: 35px 0;
   position: relative;
-  /* animation: subAnimation 2.5s; */
+  animation: subAnimation 2s;
 }
 .content__wrapper * {
   text-decoration: none;
