@@ -18,7 +18,7 @@
   <OpacityBar
     class="opacity-bar"
     :passOpaValue="opaValue"
-    @update:opacity="updateOpacity"
+    @returnOpaValue="updateOpacity"
   />
   <SampleArea class="sample-back" :passSample="setSample" />
   <HowToArea class="how-to" />
@@ -27,6 +27,7 @@
   <!-- ボタンがコンポーネント化できない
     https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
   <button class="finish-button" @click="finishGame">{{ finish }}</button>
+  <button @click="sweet">abc</button>
 </template>
 
 <script>
@@ -38,6 +39,7 @@ import SampleArea from "@/components/SampleArea.vue"
 import OpacityBar from "@/components/OpacityBar.vue"
 import HowToArea from "@/components/HowToArea.vue"
 import ColorPalette from "@/components/ColorPalette.vue"
+import Swal from "sweetalert2"
 import { doc, setDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
@@ -82,13 +84,22 @@ export default {
         query: { stage: this.setDocName },
       })
     },
+    sweet() {
+      Swal.fire({
+        title: "Error!",
+        text: "Do you want to continue",
+        icon: "error",
+        confirmButtonText: "Cool",
+      })
+    },
   },
 }
 </script>
 
 <style scoped>
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  padding: 10px;
 }
 .editor {
   height: 600px;
@@ -100,7 +111,6 @@ export default {
   width: 350px;
   outline: 1px solid #303030;
   padding: 10px;
-  overflow-x: scroll;
 }
 .sample-back {
   height: 350px;

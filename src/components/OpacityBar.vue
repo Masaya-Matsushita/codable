@@ -5,14 +5,14 @@
 <script>
 export default {
   props: ["passOpaValue"],
-  emits: ["update:opacity"],
+  emits: ["returnOpaValue"],
   computed: {
     updateOpaValue: {
       get() {
         return this.passOpaValue
       },
       set(value) {
-        this.$emit("update:opacity", value)
+        this.$emit("returnOpaValue", value)
       },
     },
   },
