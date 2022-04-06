@@ -209,18 +209,11 @@ export default {
   height: 80px;
   width: 270px;
   font-size: 1.5rem;
-  text-align: center;
-  position: absolute;
-  top: 640px;
-  right: 35%;
 }
 .finish-button {
   height: 80px;
   width: 270px;
   font-size: 1.5rem;
-  position: absolute;
-  top: 640px;
-  right: 10%;
 }
 
 @media (max-width: 1200px) {
@@ -242,24 +235,6 @@ export default {
     align-items: center;
     margin-top: 100px;
   }
-  .howTo-button {
-    width: 300px;
-    height: 60px;
-    top: 160px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateX(-180px);
-  }
-  .finish-button {
-    width: 300px;
-    height: 60px;
-    top: 160px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateX(180px);
-  }
 }
 
 @media (max-width: 740px) {
@@ -272,52 +247,12 @@ export default {
   .sample-area {
     margin: 0 0 30px 0;
   }
-  .howTo-button {
-    width: 200px;
-    height: 55px;
-    top: 160px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateX(-110px);
-  }
-  .finish-button {
-    width: 200px;
-    height: 55px;
-    top: 160px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateX(110px);
-  }
 }
 
 @media (max-width: 620px) {
   .editor {
     width: 96vw;
     padding: 0 2vw 50px 2vw;
-  }
-}
-
-@media (max-width: 440px) {
-  .howTo-button {
-    width: calc(100vw - 120px);
-    height: 50px;
-    top: 150px;
-    left: 0;
-    margin: auto;
-    transform: translate(0);
-  }
-  .finish-button {
-    width: calc(100vw - 120px);
-    height: 50px;
-    top: 210px;
-    left: 0;
-    margin: auto;
-    transform: translate(0);
-  }
-  .content-area {
-    margin-top: 140px;
   }
 }
 </style>
