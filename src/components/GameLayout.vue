@@ -21,13 +21,13 @@
     @returnOpaValue="updateOpacity"
   />
   <SampleArea class="sample-back" :passSample="setSample" />
-  <HowToArea class="how-to" />
+
   <ColorPalette class="color-palette" :passColorCodes="setColorCodes" />
 
+  <button class="button" @click="howToAlert">{{ howTo }}</button>
   <!-- ボタンがコンポーネント化できない
     https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
-  <button class="finish-button" @click="finishGame">{{ finish }}</button>
-  <button @click="sweet">abc</button>
+  <button class="button" @click="finishGame">{{ finish }}</button>
 </template>
 
 <script>
@@ -37,7 +37,6 @@ import "ace-builds/src-noconflict/theme-chrome"
 import CanvasArea from "@/components/CanvasArea.vue"
 import SampleArea from "@/components/SampleArea.vue"
 import OpacityBar from "@/components/OpacityBar.vue"
-import HowToArea from "@/components/HowToArea.vue"
 import ColorPalette from "@/components/ColorPalette.vue"
 import Swal from "sweetalert2"
 import { doc, setDoc } from "firebase/firestore"
@@ -49,7 +48,6 @@ export default {
     CanvasArea,
     SampleArea,
     OpacityBar,
-    HowToArea,
     ColorPalette,
   },
   props: ["setTitle", "setDocName", "setCode", "setSample", "setColorCodes"],
@@ -57,6 +55,7 @@ export default {
   data() {
     return {
       opaValue: 0.5,
+      howTo: "遊び方",
       finish: "完成",
     }
   },
@@ -75,6 +74,34 @@ export default {
     updateOpacity(value) {
       this.opaValue = value
     },
+    async howToAlert() {
+      const steps = ["1", "2", "3"]
+      const Queue = Swal.mixin({
+        progressSteps: steps,
+        confirmButtonText: "Next >",
+        // optional classes to avoid backdrop blinking between steps
+        showClass: { backdrop: "swal2-noanimation" },
+        hideClass: { backdrop: "swal2-noanimation" },
+      })
+
+      await Queue.fire({
+        title: "Uno",
+        currentProgressStep: 0,
+        // optional class to show fade-in backdrop animation which was disabled in Queue mixin
+        showClass: { backdrop: "swal2-noanimation" },
+      })
+      await Queue.fire({
+        title: "Dos",
+        currentProgressStep: 1,
+      })
+      await Queue.fire({
+        title: "Tres",
+        currentProgressStep: 2,
+        confirmButtonText: "OK",
+        // optional class to show fade-out backdrop animation which was disabled in Queue mixin
+        showClass: { backdrop: "swal2-noanimation" },
+      })
+    },
     finishGame() {
       setDoc(doc(db, "Games", this.setDocName), {
         code: this.setCode,
@@ -82,14 +109,6 @@ export default {
       this.$router.push({
         name: "feedback",
         query: { stage: this.setDocName },
-      })
-    },
-    sweet() {
-      Swal.fire({
-        title: "Error!",
-        text: "Do you want to continue",
-        icon: "error",
-        confirmButtonText: "Cool",
       })
     },
   },
@@ -126,7 +145,7 @@ export default {
 .color-palette {
   background-color: #fff;
 }
-.finish-button {
+.button {
   height: 80px;
   width: 250px;
   font-size: 1.5rem;
