@@ -2,6 +2,7 @@
   <RecordLayout
     :setTitle="title"
     :setContentTitle="contentTitle"
+    :setColor="this.passColor"
     :setStage="this.$route.query.stage"
   />
 </template>
@@ -13,6 +14,7 @@ export default {
   components: {
     RecordLayout,
   },
+  props: ["passColor"],
   data() {
     return {
       title: {

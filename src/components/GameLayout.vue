@@ -171,6 +171,7 @@ export default {
       })
       this.$router.push({
         name: "feedback",
+        params: { passColor: this.setColorCodes[0] },
         query: { stage: this.setDocName },
       })
     },
@@ -182,6 +183,7 @@ export default {
 .title {
   height: 50px;
   font-size: 2.5rem;
+  letter-spacing: 0.2rem;
 }
 .title .button-area {
   display: none;
@@ -280,6 +282,9 @@ export default {
 }
 
 @media (max-width: 850px) {
+  .title {
+    letter-spacing: normal;
+  }
   .title .button-area {
     margin-right: 30px;
   }

@@ -1,7 +1,9 @@
 <template>
-  <div class="title__logo">{{ setTitle.logo }}</div>
-  <span class="title__text">{{ setTitle.mainText }}</span>
-  <span class="title__text title__text-sub">{{ setTitle.subText }}</span>
+  <div class="title__container" :style="titleBgColor">
+    <div class="title__logo">{{ setTitle.logo }}</div>
+    <span class="title__text">{{ setTitle.mainText }}</span>
+    <span class="title__text title__text-sub">{{ setTitle.subText }}</span>
+  </div>
   <div class="content__container">
     <div class="content__title">{{ setContentTitle }}</div>
     <VAceEditor
@@ -26,9 +28,10 @@ export default {
   components: {
     VAceEditor,
   },
-  props: ["setTitle", "setContentTitle", "setStage"],
+  props: ["setTitle", "setContentTitle", "setColor", "setStage"],
   data() {
     return {
+      titleBgColor: { backgroundColor: this.setColor + "30" },
       record: {},
       finish: "ステージ選択へ",
     }
@@ -49,7 +52,7 @@ export default {
 <style scoped>
 .title__logo {
   font-size: 3rem;
-  margin: 30px auto;
+  padding: 30px auto;
 }
 .title__text {
   font-size: 2rem;
