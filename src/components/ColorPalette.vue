@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .palette {
-  width: 300px;
+  width: 350px;
   padding: 10px 10px;
   display: flex;
   align-items: center;

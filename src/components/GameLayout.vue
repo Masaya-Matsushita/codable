@@ -1,33 +1,39 @@
 <template>
   <div class="title">{{ setTitle }}</div>
-  <VAceEditor
-    class="editor"
-    v-model:value="updateCode"
-    @init="editorInit"
-    lang="html"
-    theme="chrome"
-  />
-  <CanvasArea class="back" :passCode="setCode" />
-  <SampleArea
-    class="sample-back"
-    :passSample="setSample"
-    :style="{
-      opacity: opaValue,
-    }"
-  />
-  <OpacityBar
-    class="opacity-bar"
-    :passOpaValue="opaValue"
-    @returnOpaValue="updateOpacity"
-  />
-  <SampleArea class="sample-back" :passSample="setSample" />
-
-  <ColorPalette class="color-palette" :passColorCodes="setColorCodes" />
-
-  <button class="button" @click="howToAlert">{{ howTo }}</button>
+  <div class="content-area">
+    <VAceEditor
+      class="editor"
+      v-model:value="updateCode"
+      @init="editorInit"
+      lang="html"
+      theme="chrome"
+    />
+    <div class="canvas-area">
+      <div class="over-lap">
+        <CanvasArea class="back" :passCode="setCode" />
+        <SampleArea
+          class="sample-back upper"
+          :passSample="setSample"
+          :style="{
+            opacity: opaValue,
+          }"
+        />
+      </div>
+      <OpacityBar
+        class="opacity-bar"
+        :passOpaValue="opaValue"
+        @returnOpaValue="updateOpacity"
+      />
+    </div>
+    <div class="sample-area">
+      <SampleArea class="sample-back" :passSample="setSample" />
+      <ColorPalette class="color-palette" :passColorCodes="setColorCodes" />
+    </div>
+  </div>
   <!-- ボタンがコンポーネント化できない
     https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
-  <button class="button" @click="finishGame">{{ finish }}</button>
+  <button class="howTo-button" @click="howToAlert">{{ howTo }}</button>
+  <button class="finish-button" @click="finishGame">{{ finish }}</button>
 </template>
 
 <script>
@@ -152,13 +158,21 @@ export default {
 
 <style scoped>
 .title {
+  height: 50px;
   font-size: 2.5rem;
-  padding: 10px;
+  background: linear-gradient(to left, #fafaf0, #00800050, #fafaf0);
+}
+.content-area {
+  display: flex;
+  align-items: flex-start;
 }
 .editor {
   height: 600px;
   width: 600px;
   font-size: 1rem;
+}
+.over-lap * {
+  position: absolute;
 }
 .back {
   height: 350px;
@@ -170,17 +184,24 @@ export default {
   height: 350px;
   width: 350px;
   outline: 1px solid #303030;
+  padding: 10px;
+}
+.upper {
+  z-index: 1;
 }
 .opacity-bar {
   width: 350px;
-}
-.how-to {
-  background-color: #fff;
+  margin-top: 380px;
 }
 .color-palette {
   background-color: #fff;
 }
-.button {
+.howTo-button {
+  height: 80px;
+  width: 250px;
+  font-size: 1.5rem;
+}
+.finish-button {
   height: 80px;
   width: 250px;
   font-size: 1.5rem;

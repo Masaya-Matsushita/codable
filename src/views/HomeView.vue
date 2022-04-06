@@ -132,7 +132,7 @@ export default {
   }
 } */
 .title__text {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   /* animation: subAnimation 2.3s; */
 }
 .title__text-sub {
@@ -205,9 +205,6 @@ export default {
 @media (max-width: 610px) {
   .title__logo {
     font-size: 4rem;
-  }
-  .title__text {
-    font-size: 1.5rem;
   }
 }
 

@@ -16,7 +16,7 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(250, 250, 240);
+  background-color: #fafaf0;
 }
 
 #app {
@@ -28,7 +28,7 @@ body {
 }
 
 nav {
-  padding: 30px;
+  height: 80px;
   background-color: rgb(25, 50, 80);
 }
 
