@@ -1,5 +1,7 @@
 <template>
-  <div class="title">{{ setTitle }}</div>
+  <div class="title" :style="titleStyle">
+    {{ setTitle }}
+  </div>
   <div class="content-area">
     <VAceEditor
       class="editor"
@@ -65,6 +67,9 @@ export default {
   emits: ["returnCode"],
   data() {
     return {
+      titleStyle: {
+        backgroundColor: this.setColorCodes[0] + "25",
+      },
       opaValue: 0,
       howTo: "遊び方",
       finish: "完成！！",
@@ -164,7 +169,6 @@ export default {
 .title {
   height: 50px;
   font-size: 2.5rem;
-  background: linear-gradient(to left, #fafaf0, #00800050, #fafaf0);
 }
 .content-area {
   display: flex;
