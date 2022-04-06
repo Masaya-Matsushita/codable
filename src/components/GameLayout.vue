@@ -75,7 +75,7 @@ export default {
       this.opaValue = value
     },
     async howToAlert() {
-      const steps = ["1", "2", "3"]
+      const steps = ["1", "2", "3", "4", "5"]
       const Queue = Swal.mixin({
         progressSteps: steps,
         confirmButtonText: "Next >",
@@ -83,20 +83,52 @@ export default {
         showClass: { backdrop: "swal2-noanimation" },
         hideClass: { backdrop: "swal2-noanimation" },
       })
-
       await Queue.fire({
-        title: "Uno",
+        title: "遊び方 1/4",
+        text: "html,cssを記述して「完成例」イメージを作成しよう!",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
         currentProgressStep: 0,
         // optional class to show fade-in backdrop animation which was disabled in Queue mixin
         showClass: { backdrop: "swal2-noanimation" },
       })
       await Queue.fire({
-        title: "Dos",
+        title: "遊び方 2/4",
+        text: "エディタに記述したコードは「キャンバス」に反映されるよ!",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
         currentProgressStep: 1,
       })
       await Queue.fire({
-        title: "Tres",
+        title: "遊び方 3/4",
+        text: "正解のコードは1つとは限らないよ! 色々な方法を模索してみよう!",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
         currentProgressStep: 2,
+      })
+      await Queue.fire({
+        title: "遊び方 4/4",
+        text: "「完成!」ボタンを押して終了！ その時点のコードとキャンバスが保存されるよ!",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
+        currentProgressStep: 3,
+      })
+      await Queue.fire({
+        title: "Hint",
+        text: "ブラウザの「検証ツール」で例題の答えが見られるかも...",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
+        currentProgressStep: 4,
         confirmButtonText: "OK",
         // optional class to show fade-out backdrop animation which was disabled in Queue mixin
         showClass: { backdrop: "swal2-noanimation" },
