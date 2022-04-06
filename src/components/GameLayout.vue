@@ -35,8 +35,7 @@
   <!-- ボタンがコンポーネント化できない
     https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B -->
   <button class="howTo-button" @click="howToAlert">
-    <img class="howTo-icon" :src="howTo.iconPath" :alt="howTo.iconAlt" />
-    {{ howTo.text }}
+    {{ howTo }}
   </button>
   <button class="finish-button" @click="finishGame">{{ finish }}</button>
 </template>
@@ -66,13 +65,9 @@ export default {
   emits: ["returnCode"],
   data() {
     return {
-      opaValue: 0.5,
-      howTo: {
-        text: "遊び方",
-        iconPath: require("@/assets/HowToIcon.png"),
-        iconAlt: "?",
-      },
-      finish: "完成",
+      opaValue: 0,
+      howTo: "遊び方",
+      finish: "完成！！",
     }
   },
   computed: {
@@ -176,7 +171,7 @@ export default {
   align-items: flex-start;
 }
 .editor {
-  height: 600px;
+  height: calc(100vh - 130px);
   width: 600px;
   font-size: 1rem;
 }
@@ -206,22 +201,22 @@ export default {
   width: 350px;
   margin-top: 380px;
 }
-.color-palette {
-  background-color: #fff;
-}
 .howTo-button {
   height: 80px;
-  width: 250px;
+  width: 270px;
   font-size: 1.5rem;
-}
-.howTo-icon {
-  width: 1.2em;
-  transform: translate(-50%, 20%);
+  text-align: center;
+  position: absolute;
+  top: 640px;
+  right: 35%;
 }
 .finish-button {
   height: 80px;
-  width: 250px;
+  width: 270px;
   font-size: 1.5rem;
+  position: absolute;
+  top: 640px;
+  right: 10%;
 }
 
 @media (max-width: 1200px) {
@@ -235,23 +230,90 @@ export default {
 }
 
 @media (max-width: 1090px) {
+  .editor {
+    margin-bottom: 50px;
+  }
   .content-area {
     flex-direction: column-reverse;
     align-items: center;
+    margin-top: 100px;
+  }
+  .howTo-button {
+    width: 300px;
+    height: 60px;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(-180px);
+  }
+  .finish-button {
+    width: 300px;
+    height: 60px;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(180px);
   }
 }
+
 @media (max-width: 740px) {
+  .content-area {
+    margin-top: 85px;
+  }
   .display-area {
     flex-direction: column-reverse;
   }
   .sample-area {
     margin: 0 0 30px 0;
   }
+  .howTo-button {
+    width: 200px;
+    height: 55px;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(-110px);
+  }
+  .finish-button {
+    width: 200px;
+    height: 55px;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(110px);
+  }
 }
+
 @media (max-width: 620px) {
   .editor {
     width: 96vw;
-    padding: 0 2vw;
+    padding: 0 2vw 50px 2vw;
+  }
+}
+
+@media (max-width: 440px) {
+  .howTo-button {
+    width: calc(100vw - 120px);
+    height: 50px;
+    top: 150px;
+    left: 0;
+    margin: auto;
+    transform: translate(0);
+  }
+  .finish-button {
+    width: calc(100vw - 120px);
+    height: 50px;
+    top: 210px;
+    left: 0;
+    margin: auto;
+    transform: translate(0);
+  }
+  .content-area {
+    margin-top: 140px;
   }
 }
 </style>

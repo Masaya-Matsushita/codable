@@ -90,7 +90,6 @@ export default {
   outline: 1px solid #303030;
   padding: 10px;
   margin-bottom: 50px;
-  overflow-x: scroll;
 }
 .router {
   text-decoration: none;
