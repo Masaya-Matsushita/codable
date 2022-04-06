@@ -39,6 +39,7 @@ import SampleArea from "@/components/SampleArea.vue"
 import OpacityBar from "@/components/OpacityBar.vue"
 import ColorPalette from "@/components/ColorPalette.vue"
 import Swal from "sweetalert2"
+import "animate.css"
 import { doc, setDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
@@ -79,9 +80,13 @@ export default {
       const Queue = Swal.mixin({
         progressSteps: steps,
         confirmButtonText: "Next >",
-        // optional classes to avoid backdrop blinking between steps
-        showClass: { backdrop: "swal2-noanimation" },
-        hideClass: { backdrop: "swal2-noanimation" },
+        showClass: {
+          popup: "animate__animated animate__fadeIn",
+          backdrop: "swal2-noanimation",
+        },
+        hideClass: {
+          backdrop: "swal2-noanimation",
+        },
       })
       await Queue.fire({
         title: "遊び方 1/4",
@@ -91,8 +96,7 @@ export default {
         imageHeight: 200,
         imageAlt: "Custom image",
         currentProgressStep: 0,
-        // optional class to show fade-in backdrop animation which was disabled in Queue mixin
-        showClass: { backdrop: "swal2-noanimation" },
+        showClass: { popup: "animate__animated animate__backInRight" },
       })
       await Queue.fire({
         title: "遊び方 2/4",
@@ -130,8 +134,7 @@ export default {
         imageAlt: "Custom image",
         currentProgressStep: 4,
         confirmButtonText: "OK",
-        // optional class to show fade-out backdrop animation which was disabled in Queue mixin
-        showClass: { backdrop: "swal2-noanimation" },
+        hideClass: { popup: "animate__animated animate__backOutLeft" },
       })
     },
     finishGame() {
