@@ -10,7 +10,7 @@ import Lv7_Diamond from "../views/Lv7_Diamond.vue"
 import Lv8_Star from "../views/Lv8_Star.vue"
 import Feedback from "../views/FeedbackView.vue"
 import Record from "../views/RecordView.vue"
-import SignIn from "../views/SignInView.vue"
+import LogIn from "../views/LogInView.vue"
 
 const routes = [
   {
@@ -70,9 +70,9 @@ const routes = [
     component: Record,
   },
   {
-    path: "/sign-in",
-    name: "sign-in",
-    component: SignIn,
+    path: "/log-in",
+    name: "log-in",
+    component: LogIn,
   },
 ]
 

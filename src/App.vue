@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="logo">{{ logo }}</div>
-    <button class="signIn-btn" @click="toSignIn">{{ signIn }}</button>
+    <button class="logIn-btn" @click="toLogIn">{{ logIn }}</button>
   </nav>
   <router-view />
 </template>
@@ -11,12 +11,12 @@ export default {
   data() {
     return {
       logo: "CSS Gallary",
-      signIn: "まずはサインイン",
+      logIn: "まずはログイン",
     }
   },
   methods: {
-    toSignIn() {
-      this.$router.push("/sign-in")
+    toLogIn() {
+      this.$router.push("/log-in")
     },
   },
 }
@@ -60,7 +60,7 @@ nav {
   margin-left: 50px;
 }
 
-.signIn-btn {
+.logIn-btn {
   font-size: 1rem;
   padding: 10px 30px;
   border-radius: 5px;
@@ -74,7 +74,7 @@ nav {
     margin-left: 40px;
   }
 
-  .signIn-btn {
+  .logIn-btn {
     padding: 8px 25px;
   }
 }
@@ -86,7 +86,7 @@ nav {
     margin-left: 30px;
   }
 
-  .signIn-btn {
+  .logIn-btn {
     font-size: 0.9rem;
     padding: 7px 20px;
     margin-right: 35px;
@@ -100,7 +100,7 @@ nav {
     margin-left: 20px;
   }
 
-  .signIn-btn {
+  .logIn-btn {
     padding: 5px 15px;
     margin-right: 20px;
   }
@@ -113,7 +113,7 @@ nav {
     margin-left: 10px;
   }
 
-  .signIn-btn {
+  .logIn-btn {
     padding: 5px 10px;
     margin-right: 10px;
   }
