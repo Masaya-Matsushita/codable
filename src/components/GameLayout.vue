@@ -306,6 +306,9 @@ export default {
     font-size: 1.3rem;
     margin-right: 20px;
   }
+  .content-area {
+    margin-top: 10px;
+  }
   .display-area {
     flex-direction: column-reverse;
   }
@@ -334,18 +337,25 @@ export default {
     font-size: 1.2rem;
     margin: 0 5px;
   }
+  .content-area {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 450px) {
   .title {
-    height: 120px;
+    font-size: 2.4rem;
+    height: 160px;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
   }
   .button-area * {
     height: 40px;
     width: 110px;
     font-size: 1.2rem;
+  }
+  .content-area {
+    margin-top: 0;
   }
 }
 </style>
