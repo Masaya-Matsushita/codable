@@ -18,6 +18,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth"
+import Swal from "sweetalert2"
 
 const auth = getAuth(app)
 
@@ -34,33 +35,50 @@ export default {
   }),
   methods: {
     createUser() {
-      createUserWithEmailAndPassword(auth, this.logOnEmail, this.logOnPw)
+      createUserWithEmailAndPassword(auth, this.signIn.email, this.signIn.pw)
         .then((userCredential) => {
           const user = userCredential.user
           console.log("create user success." + user)
-          alert("作成成功")
-        })
-        .catch((error) => {
-          const errorCode = error.code
-          const errorMessage = error.message
-          console.log("errorCode: " + errorCode)
-          console.log("errorMessage: " + errorMessage)
-          alert("作成失敗")
-        })
-    },
-    authenticateUser() {
-      signInWithEmailAndPassword(auth, this.logInEmail, this.logInPw)
-        .then((userCredential) => {
-          const user = userCredential.user
-          console.log("create user success." + user)
+          console.log(user)
+          Swal.fire({
+            icon: "success",
+            title: "作成成功！",
+            text: "ユーザーが正常に登録されました。",
+          })
           this.$router.push("/")
         })
         .catch((error) => {
           const errorCode = error.code
           const errorMessage = error.message
-          console.log("errorCode: " + errorCode)
-          console.log("errorMessage: " + errorMessage)
-          alert("認証失敗")
+          console.log(errorMessage)
+          Swal.fire({
+            icon: "error",
+            title: "作成失敗",
+            text: "エラー内容 : " + errorCode,
+          })
+        })
+    },
+    authenticateUser() {
+      signInWithEmailAndPassword(auth, this.logIn.email, this.logIn.pw)
+        .then((userCredential) => {
+          const user = userCredential.user
+          console.log("create user success." + user)
+          Swal.fire({
+            icon: "success",
+            title: "認証成功！",
+            text: "正常に認証されました。",
+          })
+          this.$router.push("/")
+        })
+        .catch((error) => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          console.log(errorMessage)
+          Swal.fire({
+            icon: "error",
+            title: "認証失敗",
+            text: "エラー内容 : " + errorCode,
+          })
         })
     },
   },
