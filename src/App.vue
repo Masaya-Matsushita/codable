@@ -1,22 +1,101 @@
 <template>
   <nav>
-    <div class="logo">{{ logo }}</div>
-    <button class="logIn-btn" @click="toLogIn">{{ logIn }}</button>
+    <div class="nav-logo">{{ logo }}</div>
+    <div class="btn-container">
+      <button class="nav-btn" @click="alertLogOn">{{ logOn }}</button>
+      <button class="nav-btn" @click="alertLogIn">{{ logIn }}</button>
+      <a class="nav-link" href="#" @click="alertLogOn">{{ logOn }}</a>
+      <a class="nav-link" href="#" @click="alertLogIn">{{ logIn }}</a>
+    </div>
   </nav>
   <router-view />
 </template>
 
 <script>
+import app from "@/firebase"
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"
+import Swal from "sweetalert2"
+
+const auth = getAuth(app)
+
 export default {
   data() {
     return {
       logo: "CSS Gallary",
-      logIn: "まずはログイン",
+      logOn: "新規作成",
+      logIn: "ログイン",
     }
   },
   methods: {
-    toLogIn() {
-      this.$router.push("/log-in")
+    alertLogOn() {
+      Swal.fire({
+        title: "新規作成",
+        html:
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" >',
+        showCancelButton: true,
+        confirmButtonText: "go",
+        preConfirm: () => {
+          const email = document.getElementById("swal-input1").value
+          const pw = document.getElementById("swal-input2").value
+          createUserWithEmailAndPassword(auth, email, pw)
+            .then((userCredential) => {
+              const user = userCredential.user
+              console.log(user)
+              Swal.fire({
+                icon: "success",
+                title: "ようこそ！",
+                text: "ユーザーが正常に登録されました。",
+              })
+            })
+            .catch((error) => {
+              console.log(error.code)
+              console.log(error.message)
+              Swal.fire({
+                icon: "error",
+                title: "作成失敗",
+              })
+              Swal.showValidationMessage(`Request failed: ${error.code}`)
+            })
+        },
+      })
+    },
+    alertLogIn() {
+      Swal.fire({
+        title: "ログイン",
+        html:
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" >',
+        showCancelButton: true,
+        confirmButtonText: "go",
+        preConfirm: () => {
+          const email = document.getElementById("swal-input1").value
+          const pw = document.getElementById("swal-input2").value
+          signInWithEmailAndPassword(auth, email, pw)
+            .then((userCredential) => {
+              const user = userCredential.user
+              console.log(user)
+              Swal.fire({
+                icon: "success",
+                title: "おかえりなさい！",
+                text: "ユーザーが正常に認証されました。",
+              })
+            })
+            .catch((error) => {
+              console.log(error.code)
+              console.log(error.message)
+              Swal.fire({
+                icon: "error",
+                title: "認証失敗",
+              })
+              Swal.showValidationMessage(`Request failed: ${error.code}`)
+            })
+        },
+      })
     },
   },
 }
@@ -48,74 +127,106 @@ body {
 
 nav {
   height: 80px;
-  background-color: rgb(32, 59, 92);
+  background-color: #203b5c;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
+.nav-logo {
   font-size: 2.3rem;
   color: #fafaf0;
   margin-left: 50px;
 }
 
-.logIn-btn {
-  font-size: 1rem;
-  padding: 10px 30px;
-  border-radius: 5px;
-  margin-right: 50px;
+.btn-container {
+  display: flex;
 }
 
-@media (max-width: 800px) {
-  .logo {
+.nav-btn {
+  font-size: 1.1rem;
+  padding: 10px 40px;
+  border-radius: 5px;
+  margin-right: 50px;
+  border: none;
+  background-color: #44668ecc;
+}
+.nav-link {
+  display: none;
+  color: white;
+  text-decoration: none;
+}
+.swal2-input {
+  width: 350px;
+}
+
+@media (max-width: 770px) {
+  .nav-logo {
     font-size: 2rem;
-    color: #fafaf0;
     margin-left: 40px;
   }
 
-  .logIn-btn {
-    padding: 8px 25px;
+  .nav-btn {
+    padding: 8px 30px;
+    margin-right: 30px;
   }
 }
 
 @media (max-width: 600px) {
-  .logo {
+  .nav-logo {
     font-size: 1.7rem;
-    color: #fafaf0;
     margin-left: 30px;
   }
 
-  .logIn-btn {
-    font-size: 0.9rem;
-    padding: 7px 20px;
-    margin-right: 35px;
-  }
-}
-
-@media (max-width: 450px) {
-  .logo {
-    font-size: 1.6rem;
-    color: #fafaf0;
-    margin-left: 20px;
-  }
-
-  .logIn-btn {
-    padding: 5px 15px;
+  .nav-btn {
+    padding: 7px 25px;
     margin-right: 20px;
   }
 }
 
-@media (max-width: 350px) {
-  .logo {
+@media (max-width: 520px) {
+  .nav-btn {
+    padding: 5px 15px;
+    margin-right: 20px;
+  }
+  .swal2-input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav-btn {
+    display: none;
+  }
+  .nav-link {
+    display: block;
+    padding-right: 30px;
+  }
+  .swal2-input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 410px) {
+  .nav-link {
+    padding-right: 15px;
+  }
+  .swal2-input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 370px) {
+  .nav-logo {
     font-size: 1.4rem;
-    color: #fafaf0;
     margin-left: 10px;
   }
+}
 
-  .logIn-btn {
-    padding: 5px 10px;
-    margin-right: 10px;
+@media (max-width: 340px) {
+  .nav-link {
+    padding-right: 10px;
+    font-size: 0.8rem;
   }
 }
 </style>
