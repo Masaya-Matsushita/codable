@@ -1,12 +1,18 @@
 <template>
   <nav>
     <div class="logo">{{ logo }}</div>
-    <button class="logIn-btn" @click="toLogIn">{{ logIn }}</button>
+    <button class="logIn-btn" @click="alertLogIn">{{ logIn }}</button>
   </nav>
   <router-view />
 </template>
 
 <script>
+// import app from "@/firebase"
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import Swal from "sweetalert2"
+
+// const auth = getAuth(app)
+
 export default {
   data() {
     return {
@@ -15,8 +21,23 @@ export default {
     }
   },
   methods: {
-    toLogIn() {
-      this.$router.push("/log-in")
+    async alertLogIn() {
+      const { value: formValues } = await Swal.fire({
+        title: "ログイン",
+        html:
+          '<input id="swal-input1" class="swal2-input">' +
+          '<input id="swal-input2" class="swal2-input">',
+        focusConfirm: false,
+        preConfirm: () => {
+          return [
+            document.getElementById("swal-input1").value,
+            document.getElementById("swal-input2").value,
+          ]
+        },
+      })
+      if (formValues) {
+        Swal.fire(JSON.stringify(formValues))
+      }
     },
   },
 }

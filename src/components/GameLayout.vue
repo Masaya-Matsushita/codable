@@ -118,10 +118,8 @@ export default {
       })
       await Queue.fire({
         title: "遊び方 1/4",
-        text: "html,cssを記述して「完成例」イメージを作成しよう!",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
+        text: "html,cssを記述して例題のイメージを作成しよう!",
+        imageUrl: require("@/assets/gif/HowTo_1.gif"),
         imageAlt: "Custom image",
         currentProgressStep: 0,
         showClass: { popup: "animate__animated animate__backInRight" },
@@ -129,36 +127,28 @@ export default {
       await Queue.fire({
         title: "遊び方 2/4",
         text: "エディタに記述したコードは「キャンバス」に反映されるよ!",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
+        imageUrl: require("@/assets/gif/HowTo_1.gif"),
         imageAlt: "Custom image",
         currentProgressStep: 1,
       })
       await Queue.fire({
         title: "遊び方 3/4",
         text: "「透過度バー」や「カラーコード」をうまく利用しよう！",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
+        imageUrl: require("@/assets/gif/HowTo_2.gif"),
         imageAlt: "Custom image",
         currentProgressStep: 2,
       })
       await Queue.fire({
         title: "遊び方 4/4",
         text: "「完成!」ボタンを押して終了！ その時点のコードとキャンバスが保存されるよ!",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
+        imageUrl: require("@/assets/gif/HowTo_3.gif"),
         imageAlt: "Custom image",
         currentProgressStep: 3,
       })
       await Queue.fire({
         title: "Hint",
         text: "ブラウザの「検証ツール」で例題の答えが見られるかも...",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
+        imageUrl: require("@/assets/gif/HowTo_Hint.gif"),
         imageAlt: "Custom image",
         currentProgressStep: 4,
         confirmButtonText: "OK",
