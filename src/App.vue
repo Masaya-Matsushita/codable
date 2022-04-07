@@ -1,14 +1,21 @@
 <template>
   <nav>
-    <div class="logo">{{ logo }}</div>
-    <button class="logIn-btn" @click="alertLogIn">{{ logIn }}</button>
+    <div class="nav-logo">{{ logo }}</div>
+    <div>
+      <button class="nav-btn" @click="alertLogOn">{{ logOn }}</button>
+      <button class="nav-btn" @click="alertLogIn">{{ logIn }}</button>
+    </div>
   </nav>
   <router-view />
 </template>
 
 <script>
 import app from "@/firebase"
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"
 import Swal from "sweetalert2"
 
 const auth = getAuth(app)
@@ -17,16 +24,50 @@ export default {
   data() {
     return {
       logo: "CSS Gallary",
-      logIn: "まずはログイン",
+      logOn: "新規作成",
+      logIn: "ログイン",
     }
   },
   methods: {
-    async alertLogIn() {
+    alertLogOn() {
+      Swal.fire({
+        title: "新規作成",
+        html:
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px;">' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px;">',
+        showCancelButton: true,
+        confirmButtonText: "go",
+        preConfirm: () => {
+          const email = document.getElementById("swal-input1").value
+          const pw = document.getElementById("swal-input2").value
+          createUserWithEmailAndPassword(auth, email, pw)
+            .then((userCredential) => {
+              const user = userCredential.user
+              console.log(user)
+              Swal.fire({
+                icon: "success",
+                title: "ようこそ！",
+                text: "ユーザーが正常に登録されました。",
+              })
+            })
+            .catch((error) => {
+              console.log(error.code)
+              console.log(error.message)
+              Swal.fire({
+                icon: "error",
+                title: "作成失敗",
+              })
+              Swal.showValidationMessage(`Request failed: ${error.code}`)
+            })
+        },
+      })
+    },
+    alertLogIn() {
       Swal.fire({
         title: "ログイン",
         html:
-          '<input id="swal-input1" class="swal2-input" placeholder="メールアドレス" style="width: 300px;">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="パスワード" style="width: 300px;">',
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px;">' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px;">',
         showCancelButton: true,
         confirmButtonText: "go",
         preConfirm: () => {
@@ -47,7 +88,7 @@ export default {
               console.log(error.message)
               Swal.fire({
                 icon: "error",
-                title: "作成失敗",
+                title: "認証失敗",
               })
               Swal.showValidationMessage(`Request failed: ${error.code}`)
             })
@@ -90,13 +131,13 @@ nav {
   align-items: center;
 }
 
-.logo {
+.nav-logo {
   font-size: 2.3rem;
   color: #fafaf0;
   margin-left: 50px;
 }
 
-.logIn-btn {
+.nav-btn {
   font-size: 1rem;
   padding: 10px 30px;
   border-radius: 5px;
@@ -104,25 +145,25 @@ nav {
 }
 
 @media (max-width: 800px) {
-  .logo {
+  .nav-logo {
     font-size: 2rem;
     color: #fafaf0;
     margin-left: 40px;
   }
 
-  .logIn-btn {
+  .nav-btn {
     padding: 8px 25px;
   }
 }
 
 @media (max-width: 600px) {
-  .logo {
+  .nav-logo {
     font-size: 1.7rem;
     color: #fafaf0;
     margin-left: 30px;
   }
 
-  .logIn-btn {
+  .nav-btn {
     font-size: 0.9rem;
     padding: 7px 20px;
     margin-right: 35px;
@@ -130,26 +171,26 @@ nav {
 }
 
 @media (max-width: 450px) {
-  .logo {
+  .nav-logo {
     font-size: 1.6rem;
     color: #fafaf0;
     margin-left: 20px;
   }
 
-  .logIn-btn {
+  .nav-btn {
     padding: 5px 15px;
     margin-right: 20px;
   }
 }
 
 @media (max-width: 350px) {
-  .logo {
+  .nav-logo {
     font-size: 1.4rem;
     color: #fafaf0;
     margin-left: 10px;
   }
 
-  .logIn-btn {
+  .nav-btn {
     padding: 5px 10px;
     margin-right: 10px;
   }
