@@ -142,7 +142,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: rgb(253, 253, 250);
+  background-color: #fcfcf8;
   border: 1px solid #303030;
   border-radius: 10px;
   margin: 100px 40px;
@@ -159,7 +159,7 @@ export default {
   position: absolute;
   top: -18px;
   left: 3%;
-  background: linear-gradient(rgb(250, 250, 240), rgb(253, 253, 250));
+  background: linear-gradient(#f8f8f0, #fcfcf8);
   padding: 0 1rem;
 }
 .content__container {

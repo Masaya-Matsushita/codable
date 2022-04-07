@@ -226,6 +226,7 @@ export default {
   height: 80px;
   width: 300px;
   font-size: 1.5rem;
+  color: #303030;
 }
 
 @media (max-width: 1200px) {
@@ -300,7 +301,7 @@ export default {
     margin-right: 15px;
   }
   .button-area * {
-    height: 45px;
+    height: 43px;
     width: 120px;
     font-size: 1.3rem;
     margin-right: 20px;
@@ -330,10 +331,8 @@ export default {
     margin-right: 5px;
   }
   .button-area * {
-    height: 40px;
-    width: 100px;
     font-size: 1.2rem;
-    margin-right: 10px;
+    margin: 0 5px;
   }
 }
 
@@ -344,10 +343,9 @@ export default {
     justify-content: space-evenly;
   }
   .button-area * {
-    height: 30px;
-    width: 90px;
+    height: 40px;
+    width: 110px;
     font-size: 1.2rem;
-    margin-right: 10px;
   }
 }
 </style>
