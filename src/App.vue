@@ -7,11 +7,11 @@
 </template>
 
 <script>
-// import app from "@/firebase"
-// import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import app from "@/firebase"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import Swal from "sweetalert2"
 
-// const auth = getAuth(app)
+const auth = getAuth(app)
 
 export default {
   data() {
@@ -22,22 +22,37 @@ export default {
   },
   methods: {
     async alertLogIn() {
-      const { value: formValues } = await Swal.fire({
+      Swal.fire({
         title: "ログイン",
         html:
-          '<input id="swal-input1" class="swal2-input">' +
-          '<input id="swal-input2" class="swal2-input">',
-        focusConfirm: false,
+          '<input id="swal-input1" class="swal2-input" placeholder="メールアドレス" style="width: 300px;">' +
+          '<input id="swal-input2" class="swal2-input" placeholder="パスワード" style="width: 300px;">',
+        showCancelButton: true,
+        confirmButtonText: "go",
         preConfirm: () => {
-          return [
-            document.getElementById("swal-input1").value,
-            document.getElementById("swal-input2").value,
-          ]
+          const email = document.getElementById("swal-input1").value
+          const pw = document.getElementById("swal-input2").value
+          signInWithEmailAndPassword(auth, email, pw)
+            .then((userCredential) => {
+              const user = userCredential.user
+              console.log(user)
+              Swal.fire({
+                icon: "success",
+                title: "おかえりなさい！",
+                text: "ユーザーが正常に認証されました。",
+              })
+            })
+            .catch((error) => {
+              console.log(error.code)
+              console.log(error.message)
+              Swal.fire({
+                icon: "error",
+                title: "作成失敗",
+              })
+              Swal.showValidationMessage(`Request failed: ${error.code}`)
+            })
         },
       })
-      if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
-      }
     },
   },
 }
