@@ -35,8 +35,9 @@ export default {
       Swal.fire({
         title: "新規作成",
         html:
-          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" >' +
-          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" >',
+          // FirebaseHostingでデプロイしたら何故かstyleが効かなくなった
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
         showCancelButton: true,
         confirmButtonText: "go",
         preConfirm: () => {
@@ -68,8 +69,8 @@ export default {
       Swal.fire({
         title: "ログイン",
         html:
-          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" >' +
-          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" >',
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
         showCancelButton: true,
         confirmButtonText: "go",
         preConfirm: () => {
@@ -156,9 +157,6 @@ nav {
   color: white;
   text-decoration: none;
 }
-.swal2-input {
-  width: 350px;
-}
 
 @media (max-width: 770px) {
   .nav-logo {
@@ -189,9 +187,6 @@ nav {
     padding: 5px 15px;
     margin-right: 20px;
   }
-  .swal2-input {
-    width: 300px;
-  }
 }
 
 @media (max-width: 460px) {
@@ -202,17 +197,11 @@ nav {
     display: block;
     padding-right: 30px;
   }
-  .swal2-input {
-    width: 250px;
-  }
 }
 
 @media (max-width: 410px) {
   .nav-link {
     padding-right: 15px;
-  }
-  .swal2-input {
-    width: 200px;
   }
 }
 
