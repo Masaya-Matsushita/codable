@@ -115,7 +115,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #fafaf0;
+  background-color: #f8f8f0;
 }
 
 #app {
@@ -136,7 +136,7 @@ nav {
 
 .nav-logo {
   font-size: 2.3rem;
-  color: #fafaf0;
+  color: #f8f8f0;
   margin-left: 50px;
 }
 
@@ -151,10 +151,11 @@ nav {
   margin-right: 50px;
   border: none;
   background-color: #44668ecc;
+  color: #303030;
 }
 .nav-link {
   display: none;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 

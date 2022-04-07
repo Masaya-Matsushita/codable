@@ -39,7 +39,7 @@ export default {
 .checker {
   height: 20px;
   width: 20px;
-  outline: auto;
+  outline: 1.5px solid #303030;
   border-radius: 10px;
 }
 .code {

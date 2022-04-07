@@ -31,7 +31,7 @@ export default {
   props: ["setTitle", "setContentTitle", "setColor", "setStage"],
   data() {
     return {
-      titleBgColor: { backgroundColor: this.setColor + "30" },
+      titleBgColor: { backgroundColor: this.setColor + "25" },
       record: {},
       finish: "ステージ選択へ",
     }
@@ -64,7 +64,7 @@ export default {
   max-width: 1300px;
   margin: 50px 30px;
   padding: 50px 20px;
-  background-color: rgb(253, 253, 250);
+  background-color: #fcfcf8;
   border: 1px solid #303030;
   border-radius: 10px;
   position: relative;
@@ -78,7 +78,7 @@ export default {
   left: 5%;
   font-size: 1.3rem;
   padding: 0 10px;
-  background-color: rgb(250, 250, 240);
+  background: linear-gradient(#f8f8f0, #fcfcf8);
 }
 .editor {
   height: 350px;
@@ -100,6 +100,7 @@ export default {
 .finish-button {
   height: 70px;
   width: 350px;
+  color: #303030;
   font-size: 1.5rem;
   display: block;
   margin: 0 200px 50px auto;
