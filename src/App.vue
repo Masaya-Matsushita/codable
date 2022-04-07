@@ -35,7 +35,6 @@ export default {
       Swal.fire({
         title: "新規作成",
         html:
-          // FirebaseHostingでデプロイしたら何故かstyleが効かなくなった
           '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
           '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
         showCancelButton: true,
