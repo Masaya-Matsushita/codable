@@ -357,5 +357,22 @@ export default {
   .content-area {
     margin-top: 0;
   }
+  .opacity-bar {
+    width: 280px;
+  }
+  .color-palette {
+    width: 320px;
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 350px) {
+  .opacity-bar {
+    width: 250px;
+  }
+  .color-palette {
+    width: 280px;
+    margin: 10px auto;
+  }
 }
 </style>

@@ -144,13 +144,14 @@ nav {
 }
 
 .nav-btn {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   padding: 10px 40px;
   border-radius: 5px;
   margin-right: 50px;
   border: none;
-  background-color: #44668ecc;
+  background-color: #597596;
   color: #303030;
+  font-weight: bold;
 }
 .nav-link {
   display: none;
@@ -158,64 +159,46 @@ nav {
   text-decoration: none;
 }
 
-@media (max-width: 770px) {
-  .nav-logo {
-    font-size: 2rem;
-    margin-left: 40px;
-  }
-
-  .nav-btn {
-    padding: 8px 30px;
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav-logo {
-    font-size: 1.7rem;
-    margin-left: 30px;
-  }
-
-  .nav-btn {
-    padding: 7px 25px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 520px) {
-  .nav-btn {
-    padding: 5px 15px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 460px) {
+@media (max-width: 1090px) {
   .nav-btn {
     display: none;
   }
   .nav-link {
     display: block;
-    padding-right: 30px;
+    font-size: 1.2rem;
+    margin-right: 50px;
   }
 }
 
-@media (max-width: 410px) {
-  .nav-link {
-    padding-right: 15px;
-  }
-}
-
-@media (max-width: 370px) {
+@media (max-width: 570px) {
   .nav-logo {
-    font-size: 1.4rem;
+    font-size: 2rem;
+    margin-left: 35px;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav-logo {
+    font-size: 1.8rem;
+    margin-left: 25px;
+  }
+  .nav-link {
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo {
+    font-size: 1.6rem;
     margin-left: 10px;
   }
-}
-
-@media (max-width: 340px) {
   .nav-link {
-    padding-right: 10px;
-    font-size: 0.8rem;
+    margin-right: 15px;
   }
 }
 </style>

@@ -206,6 +206,9 @@ export default {
   .title__logo {
     font-size: 4rem;
   }
+  .content__record {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 540px) {

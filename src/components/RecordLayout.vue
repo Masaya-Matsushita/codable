@@ -125,6 +125,12 @@ export default {
 }
 
 @media (max-width: 930px) {
+  .title__logo {
+    font-size: 2.6rem;
+  }
+  .title__text {
+    font-size: 1.7rem;
+  }
   .editor {
     width: 400px;
   }
@@ -138,10 +144,10 @@ export default {
 
 @media (max-width: 550px) {
   .title__logo {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   .title__text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -150,34 +156,39 @@ export default {
     margin: 35px 15px;
     padding: 35px 10px;
   }
-  .finish-button {
-    height: 50px;
-    width: 270px;
-    font-size: 1.3rem;
-  }
 }
 
 @media (max-width: 400px) {
   .title__logo {
-    font-size: 2.2rem;
-    margin: 25px auto;
+    font-size: 1.8rem;
+    padding: 35px auto;
   }
   .title__text {
     font-size: 1.3rem;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
   }
   .content__title {
     font-size: 1rem;
   }
 }
 
+@media (max-width: 370px) {
+  .finish-button {
+    height: 60px;
+    width: 300px;
+    font-size: 1.4rem;
+  }
+}
 @media (max-width: 350px) {
   .title__logo {
-    font-size: 1.8rem;
-    margin: 20px auto;
+    font-size: 1.5rem;
+    padding: 30px auto;
   }
   .title__text {
     font-size: 1rem;
+  }
+  .finish-button {
+    width: 260px;
   }
 }
 </style>
