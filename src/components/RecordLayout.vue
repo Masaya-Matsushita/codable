@@ -23,6 +23,10 @@ import "ace-builds/src-noconflict/mode-html"
 import "ace-builds/src-noconflict/theme-chrome"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import Swal from "sweetalert2"
+
+const auth = getAuth()
 
 export default {
   components: {
@@ -37,8 +41,19 @@ export default {
     }
   },
   created() {
-    getDoc(doc(db, "Games", this.setStage)).then((snapshot) => {
-      this.record = snapshot.data()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        getDoc(doc(db, user.email, this.setStage)).then((snapshot) => {
+          this.record = snapshot.data()
+        })
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "User Not Found",
+          text: "ログインが確認されていません。",
+        })
+        this.$router.push("/")
+      }
     })
   },
   methods: {

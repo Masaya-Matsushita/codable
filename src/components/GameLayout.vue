@@ -64,6 +64,9 @@ import Swal from "sweetalert2"
 import "animate.css"
 import { doc, setDoc } from "firebase/firestore"
 import { db } from "../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+
+const auth = getAuth()
 
 export default {
   components: {
@@ -154,13 +157,24 @@ export default {
       })
     },
     finishGame() {
-      setDoc(doc(db, "Games", this.setDocName), {
-        code: this.setCode,
-      })
-      this.$router.push({
-        name: "feedback",
-        params: { passColor: this.setColorCodes[0] },
-        query: { stage: this.setDocName },
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setDoc(doc(db, user.email, this.setDocName), {
+            code: this.setCode,
+          })
+          this.$router.push({
+            name: "feedback",
+            params: { passColor: this.setColorCodes[0] },
+            query: { stage: this.setDocName },
+          })
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "User Not Found",
+            text: "ログインが確認されていません。",
+          })
+          this.$router.push("/")
+        }
       })
     },
   },
