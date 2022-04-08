@@ -284,13 +284,7 @@ export default {
   }
 }
 
-@media (max-width: 850px) {
-  .title {
-    letter-spacing: normal;
-  }
-  .title .button-area {
-    margin-right: 30px;
-  }
+@media (max-width: 980px) {
   .button-area * {
     height: 50px;
     width: 160px;
@@ -298,12 +292,21 @@ export default {
     border-radius: 5px;
     margin-right: 20px;
   }
+}
+
+@media (max-width: 860px) {
+  .title {
+    letter-spacing: normal;
+  }
+  .title .button-area {
+    margin-right: 30px;
+  }
   .editor {
     margin-bottom: 50px;
   }
 }
 
-@media (max-width: 740px) {
+@media (max-width: 790px) {
   .title {
     height: 100px;
     padding-left: 25px;
@@ -329,6 +332,19 @@ export default {
   }
 }
 
+@media (max-width: 650px) {
+  .title {
+    font-size: 2.4rem;
+    height: 180px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .button-area * {
+    margin: 0 15px;
+    height: 50px;
+    width: 150px;
+  }
+}
 @media (max-width: 620px) {
   .editor {
     width: 96vw;
@@ -337,34 +353,16 @@ export default {
 }
 
 @media (max-width: 550px) {
-  .title {
-    height: 80px;
-    padding-left: 15px;
-    font-size: 2rem;
-  }
-  .title .button-area {
-    margin-right: 5px;
-  }
-  .button-area * {
-    font-size: 1.2rem;
-    margin: 0 5px;
-  }
   .content-area {
     margin-top: 0;
   }
 }
 
 @media (max-width: 450px) {
-  .title {
-    font-size: 2.4rem;
-    height: 160px;
-    flex-direction: column;
-    justify-content: center;
-  }
   .button-area * {
-    height: 40px;
-    width: 110px;
-    font-size: 1.2rem;
+    margin: 0 10px;
+    height: 45px;
+    width: 120px;
   }
   .content-area {
     margin-top: 0;
@@ -379,6 +377,14 @@ export default {
 }
 
 @media (max-width: 350px) {
+  .title {
+    padding: 0;
+  }
+  .button-area * {
+    margin: 0 10px;
+    height: 40px;
+    width: 100px;
+  }
   .opacity-bar {
     width: 250px;
   }

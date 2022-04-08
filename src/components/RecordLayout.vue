@@ -77,8 +77,8 @@ export default {
 }
 .content__container {
   max-width: 1300px;
-  margin: 50px 30px;
-  padding: 50px 20px;
+  margin: 40px 30px 20px 30px;
+  padding: 35px 20px 0 20px;
   background-color: #fcfcf8;
   border: 1px solid #303030;
   border-radius: 10px;
@@ -100,14 +100,14 @@ export default {
   width: 600px;
   font-size: 1rem;
   outline: 1px solid #303030;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 .back {
   height: 350px;
   width: 350px;
   outline: 1px solid #303030;
   padding: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 .router {
   text-decoration: none;
@@ -152,6 +152,9 @@ export default {
 }
 
 @media (max-width: 866px) {
+  .content__container {
+    margin: 50px 30px;
+  }
   .editor {
     width: 500px;
   }

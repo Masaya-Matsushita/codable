@@ -253,7 +253,7 @@ export default {
   }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 450px) {
   .title__logo {
     font-size: 2.5rem;
     margin: 40px auto;
@@ -267,6 +267,18 @@ export default {
   }
   .content__title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .title__text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 385px) {
+  .title__text {
+    font-size: 1rem;
   }
 }
 </style>
