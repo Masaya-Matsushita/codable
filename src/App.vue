@@ -144,14 +144,13 @@ nav {
 }
 
 .nav-btn {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 10px 40px;
   border-radius: 5px;
   margin-right: 50px;
   border: none;
   background-color: #597596;
   color: #303030;
-  font-weight: bold;
 }
 .nav-link {
   display: none;

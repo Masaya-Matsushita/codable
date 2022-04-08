@@ -104,9 +104,7 @@ export default {
       this.opaValue = value
     },
     async howToAlert() {
-      const steps = ["1", "2", "3", "4", "5"]
       const Queue = Swal.mixin({
-        progressSteps: steps,
         confirmButtonText: "Next >",
         showClass: {
           popup: "animate__animated animate__fadeIn",
