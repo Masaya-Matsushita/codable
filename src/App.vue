@@ -1,7 +1,11 @@
 <template>
   <nav>
     <div class="nav-logo">{{ logo }}</div>
-    <div class="btn-container">
+    <div class="logOut-container" v-if="isLogIn">
+      <button class="nav-btn" @click="alertLogOut">{{ logOut }}</button>
+      <a class="nav-link" href="#" @click="alertLogOut">{{ logOut }}</a>
+    </div>
+    <div class="logIn-container" v-else>
       <button class="nav-btn" @click="alertLogOn">{{ logOn }}</button>
       <button class="nav-btn" @click="alertLogIn">{{ logIn }}</button>
       <a class="nav-link" href="#" @click="alertLogOn">{{ logOn }}</a>
@@ -13,10 +17,13 @@
 
 <script>
 import app from "@/firebase"
+
 import {
   getAuth,
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth"
 import Swal from "sweetalert2"
 
@@ -26,9 +33,20 @@ export default {
   data() {
     return {
       logo: "CSS Gallary",
+      isLogIn: false,
+      logOut: "ログアウト",
       logOn: "新規作成",
       logIn: "ログイン",
     }
+  },
+  mounted() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.isLogIn = true
+      } else {
+        this.isLogIn = false
+      }
+    })
   },
   methods: {
     alertLogOn() {
@@ -51,6 +69,7 @@ export default {
                 title: "ようこそ！",
                 text: "ユーザーが正常に登録されました。",
               })
+              this.isLogIn = true
               this.$router.push("/")
             })
             .catch((error) => {
@@ -85,6 +104,7 @@ export default {
                 title: "おかえりなさい！",
                 text: "ユーザーが正常に認証されました。",
               })
+              this.isLogIn = true
               this.$router.push("/")
             })
             .catch((error) => {
@@ -98,6 +118,24 @@ export default {
             })
         },
       })
+    },
+    alertLogOut() {
+      signOut(auth)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "ログアウトしました！",
+          })
+          this.isLogIn = false
+          this.$router.push("/")
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: error,
+            footer: "Hint. タブを閉じるとログアウトできます。",
+          })
+        })
     },
   },
 }
@@ -141,7 +179,7 @@ nav {
   margin-left: 50px;
 }
 
-.btn-container {
+.logIn-container {
   display: flex;
 }
 

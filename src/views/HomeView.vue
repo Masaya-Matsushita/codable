@@ -107,7 +107,7 @@ export default {
           this.$router.push(gamePath)
         } else {
           Swal.fire({
-            icon: "error",
+            icon: "warning",
             title: "User Not Found",
             text: "まずはログインしてください！",
           })
@@ -123,7 +123,7 @@ export default {
           })
         } else {
           Swal.fire({
-            icon: "error",
+            icon: "warning",
             title: "User Not Found",
             text: "まずはログインしてください！",
           })
