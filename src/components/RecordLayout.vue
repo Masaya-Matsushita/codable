@@ -43,6 +43,7 @@ export default {
   created() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        //ユーザーのデータがない場合、他のユーザーのデータをとってきてしまう。
         getDoc(doc(db, user.email, this.setStage)).then((snapshot) => {
           this.record = snapshot.data()
         })
