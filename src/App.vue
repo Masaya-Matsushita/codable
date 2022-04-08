@@ -35,7 +35,7 @@ export default {
       logo: "CSS Gallary",
       isLogIn: false,
       logOut: "ログアウト",
-      logOn: "新規作成",
+      logOn: "新規登録",
       logIn: "ログイン",
     }
   },
@@ -51,7 +51,7 @@ export default {
   methods: {
     alertLogOn() {
       Swal.fire({
-        title: "新規作成",
+        title: "新規登録",
         html:
           '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
           '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
@@ -73,11 +73,9 @@ export default {
               this.$router.push("/")
             })
             .catch((error) => {
-              console.log(error.code)
-              console.log(error.message)
               Swal.fire({
                 icon: "error",
-                title: "作成失敗",
+                title: "登録失敗",
               })
               Swal.showValidationMessage(`Request failed: ${error.code}`)
             })
@@ -108,8 +106,6 @@ export default {
               this.$router.push("/")
             })
             .catch((error) => {
-              console.log(error.code)
-              console.log(error.message)
               Swal.fire({
                 icon: "error",
                 title: "認証失敗",
@@ -133,7 +129,7 @@ export default {
           Swal.fire({
             icon: "error",
             title: error,
-            footer: "Hint. タブを閉じるとログアウトできます。",
+            footer: "contact developer : masaya.feb14@gmail.com",
           })
         })
     },
