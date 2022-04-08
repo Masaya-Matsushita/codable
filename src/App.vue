@@ -51,6 +51,7 @@ export default {
                 title: "ようこそ！",
                 text: "ユーザーが正常に登録されました。",
               })
+              this.$router.push("/")
             })
             .catch((error) => {
               console.log(error.code)
@@ -84,6 +85,7 @@ export default {
                 title: "おかえりなさい！",
                 text: "ユーザーが正常に認証されました。",
               })
+              this.$router.push("/")
             })
             .catch((error) => {
               console.log(error.code)
