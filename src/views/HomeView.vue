@@ -9,14 +9,14 @@
       v-for="content in contents"
       :key="content.index"
     >
-      <router-link :to="content.path">
+      <div @click="toGame(content.path)">
         <img
           class="content__img"
           :src="content.imagePath"
           :alt="content.imageAlt"
         />
         <p class="content__text">{{ content.text }}</p>
-      </router-link>
+      </div>
       <button class="content__record" @click="toRecord(content.docName)">
         {{ recordText }}
       </button>
@@ -25,6 +25,11 @@
 </template>
 
 <script>
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import Swal from "sweetalert2"
+
+const auth = getAuth()
+
 export default {
   data() {
     return {
@@ -96,10 +101,33 @@ export default {
     }
   },
   methods: {
+    toGame(gamePath) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push(gamePath)
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "User Not Found",
+            text: "まずはログインしてください！",
+          })
+        }
+      })
+    },
     toRecord(docName) {
-      this.$router.push({
-        name: "record",
-        query: { stage: docName },
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({
+            name: "record",
+            query: { stage: docName },
+          })
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "User Not Found",
+            text: "まずはログインしてください！",
+          })
+        }
       })
     },
   },
@@ -206,6 +234,9 @@ export default {
   .title__logo {
     font-size: 4rem;
   }
+  .content__record {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 540px) {
@@ -222,7 +253,7 @@ export default {
   }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 450px) {
   .title__logo {
     font-size: 2.5rem;
     margin: 40px auto;
@@ -236,6 +267,18 @@ export default {
   }
   .content__title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .title__text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 385px) {
+  .title__text {
+    font-size: 1rem;
   }
 }
 </style>

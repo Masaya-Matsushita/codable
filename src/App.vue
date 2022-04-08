@@ -1,7 +1,11 @@
 <template>
   <nav>
     <div class="nav-logo">{{ logo }}</div>
-    <div class="btn-container">
+    <div class="logOut-container" v-if="isLogIn">
+      <button class="nav-btn" @click="alertLogOut">{{ logOut }}</button>
+      <a class="nav-link" href="#" @click="alertLogOut">{{ logOut }}</a>
+    </div>
+    <div class="logIn-container" v-else>
       <button class="nav-btn" @click="alertLogOn">{{ logOn }}</button>
       <button class="nav-btn" @click="alertLogIn">{{ logIn }}</button>
       <a class="nav-link" href="#" @click="alertLogOn">{{ logOn }}</a>
@@ -13,10 +17,13 @@
 
 <script>
 import app from "@/firebase"
+
 import {
   getAuth,
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth"
 import Swal from "sweetalert2"
 
@@ -26,16 +33,26 @@ export default {
   data() {
     return {
       logo: "CSS Gallary",
-      logOn: "新規作成",
+      isLogIn: false,
+      logOut: "ログアウト",
+      logOn: "新規登録",
       logIn: "ログイン",
     }
+  },
+  mounted() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.isLogIn = true
+      } else {
+        this.isLogIn = false
+      }
+    })
   },
   methods: {
     alertLogOn() {
       Swal.fire({
-        title: "新規作成",
+        title: "新規登録",
         html:
-          // FirebaseHostingでデプロイしたら何故かstyleが効かなくなった
           '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
           '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
         showCancelButton: true,
@@ -52,13 +69,13 @@ export default {
                 title: "ようこそ！",
                 text: "ユーザーが正常に登録されました。",
               })
+              this.isLogIn = true
+              this.$router.push("/")
             })
             .catch((error) => {
-              console.log(error.code)
-              console.log(error.message)
               Swal.fire({
                 icon: "error",
-                title: "作成失敗",
+                title: "登録失敗",
               })
               Swal.showValidationMessage(`Request failed: ${error.code}`)
             })
@@ -85,10 +102,10 @@ export default {
                 title: "おかえりなさい！",
                 text: "ユーザーが正常に認証されました。",
               })
+              this.isLogIn = true
+              this.$router.push("/")
             })
             .catch((error) => {
-              console.log(error.code)
-              console.log(error.message)
               Swal.fire({
                 icon: "error",
                 title: "認証失敗",
@@ -97,6 +114,24 @@ export default {
             })
         },
       })
+    },
+    alertLogOut() {
+      signOut(auth)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "ログアウトしました！",
+          })
+          this.isLogIn = false
+          this.$router.push("/")
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: error,
+            footer: "contact developer : masaya.feb14@gmail.com",
+          })
+        })
     },
   },
 }
@@ -140,17 +175,17 @@ nav {
   margin-left: 50px;
 }
 
-.btn-container {
+.logIn-container {
   display: flex;
 }
 
 .nav-btn {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 10px 40px;
   border-radius: 5px;
   margin-right: 50px;
   border: none;
-  background-color: #44668ecc;
+  background-color: #597596;
   color: #303030;
 }
 .nav-link {
@@ -159,64 +194,46 @@ nav {
   text-decoration: none;
 }
 
-@media (max-width: 770px) {
-  .nav-logo {
-    font-size: 2rem;
-    margin-left: 40px;
-  }
-
-  .nav-btn {
-    padding: 8px 30px;
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav-logo {
-    font-size: 1.7rem;
-    margin-left: 30px;
-  }
-
-  .nav-btn {
-    padding: 7px 25px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 520px) {
-  .nav-btn {
-    padding: 5px 15px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 460px) {
+@media (max-width: 1090px) {
   .nav-btn {
     display: none;
   }
   .nav-link {
     display: block;
-    padding-right: 30px;
+    font-size: 1.2rem;
+    margin-right: 50px;
   }
 }
 
-@media (max-width: 410px) {
-  .nav-link {
-    padding-right: 15px;
-  }
-}
-
-@media (max-width: 370px) {
+@media (max-width: 570px) {
   .nav-logo {
-    font-size: 1.4rem;
+    font-size: 2rem;
+    margin-left: 35px;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav-logo {
+    font-size: 1.8rem;
+    margin-left: 25px;
+  }
+  .nav-link {
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo {
+    font-size: 1.6rem;
     margin-left: 10px;
   }
-}
-
-@media (max-width: 340px) {
   .nav-link {
-    padding-right: 10px;
-    font-size: 0.8rem;
+    margin-right: 15px;
   }
 }
 </style>

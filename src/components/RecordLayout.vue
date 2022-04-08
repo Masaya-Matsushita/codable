@@ -23,6 +23,10 @@ import "ace-builds/src-noconflict/mode-html"
 import "ace-builds/src-noconflict/theme-chrome"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import Swal from "sweetalert2"
+
+const auth = getAuth()
 
 export default {
   components: {
@@ -37,8 +41,20 @@ export default {
     }
   },
   created() {
-    getDoc(doc(db, "Games", this.setStage)).then((snapshot) => {
-      this.record = snapshot.data()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        //ユーザーのデータがない場合、他のユーザーのデータをとってきてしまう。
+        getDoc(doc(db, user.email, this.setStage)).then((snapshot) => {
+          this.record = snapshot.data()
+        })
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "User Not Found",
+          text: "ログインが確認されていません。",
+        })
+        this.$router.push("/")
+      }
     })
   },
   methods: {
@@ -62,8 +78,8 @@ export default {
 }
 .content__container {
   max-width: 1300px;
-  margin: 50px 30px;
-  padding: 50px 20px;
+  margin: 40px 30px 20px 30px;
+  padding: 35px 20px 0 20px;
   background-color: #fcfcf8;
   border: 1px solid #303030;
   border-radius: 10px;
@@ -85,14 +101,14 @@ export default {
   width: 600px;
   font-size: 1rem;
   outline: 1px solid #303030;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 .back {
   height: 350px;
   width: 350px;
   outline: 1px solid #303030;
   padding: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 .router {
   text-decoration: none;
@@ -125,12 +141,21 @@ export default {
 }
 
 @media (max-width: 930px) {
+  .title__logo {
+    font-size: 2.6rem;
+  }
+  .title__text {
+    font-size: 1.7rem;
+  }
   .editor {
     width: 400px;
   }
 }
 
 @media (max-width: 866px) {
+  .content__container {
+    margin: 50px 30px;
+  }
   .editor {
     width: 500px;
   }
@@ -138,10 +163,10 @@ export default {
 
 @media (max-width: 550px) {
   .title__logo {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   .title__text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -150,34 +175,39 @@ export default {
     margin: 35px 15px;
     padding: 35px 10px;
   }
-  .finish-button {
-    height: 50px;
-    width: 270px;
-    font-size: 1.3rem;
-  }
 }
 
 @media (max-width: 400px) {
   .title__logo {
-    font-size: 2.2rem;
-    margin: 25px auto;
+    font-size: 1.8rem;
+    padding: 35px auto;
   }
   .title__text {
     font-size: 1.3rem;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
   }
   .content__title {
     font-size: 1rem;
   }
 }
 
+@media (max-width: 370px) {
+  .finish-button {
+    height: 60px;
+    width: 300px;
+    font-size: 1.4rem;
+  }
+}
 @media (max-width: 350px) {
   .title__logo {
-    font-size: 1.8rem;
-    margin: 20px auto;
+    font-size: 1.5rem;
+    padding: 30px auto;
   }
   .title__text {
     font-size: 1rem;
+  }
+  .finish-button {
+    width: 260px;
   }
 }
 </style>
