@@ -193,10 +193,13 @@ export default {
 .content-area {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
 }
 .editor {
-  height: calc(100vh - 130px);
+  height: 80vh;
   width: 600px;
+  margin-top: 30px;
+  outline: 1px solid #030303;
   font-size: 1rem;
 }
 .display-area {
@@ -243,7 +246,6 @@ export default {
 
 @media (max-width: 1200px) {
   .editor {
-    outline: 1px solid #303030;
     margin-right: 10px;
   }
   .display-area {
@@ -300,9 +302,6 @@ export default {
   }
   .title .button-area {
     margin-right: 30px;
-  }
-  .editor {
-    margin-bottom: 50px;
   }
 }
 

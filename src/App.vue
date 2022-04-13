@@ -181,9 +181,9 @@ nav {
 
 .nav-btn {
   font-size: 1.2rem;
-  padding: 10px 40px;
+  padding: 10px 50px;
   border-radius: 5px;
-  margin-right: 50px;
+  margin-right: 80px;
   border: none;
   background-color: #597596;
   color: #303030;
@@ -192,6 +192,13 @@ nav {
   display: none;
   color: #ffffff;
   text-decoration: none;
+}
+
+@media (max-width: 1300px) {
+  .nav-btn {
+    padding: 10px 40px;
+    margin-right: 50px;
+  }
 }
 
 @media (max-width: 1090px) {

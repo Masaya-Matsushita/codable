@@ -35,7 +35,7 @@ export default {
     return {
       title: {
         logo: "CSS Gallary",
-        mainText: "コードを書いて例題のイメージに近づけよう！",
+        mainText: "CSSを書いて例題のイメージをつくろう！",
         subText: "( 全8ステージ )",
       },
       contentTitle: "Contents Lv.1~8",

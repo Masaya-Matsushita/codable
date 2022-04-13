@@ -78,7 +78,7 @@ export default {
 }
 .content__container {
   max-width: 1300px;
-  margin: 40px 30px 20px 30px;
+  margin: 40px auto 20px auto;
   padding: 35px 20px 0 20px;
   background-color: #fcfcf8;
   border: 1px solid #303030;
@@ -119,10 +119,13 @@ export default {
   color: #303030;
   font-size: 1.5rem;
   display: block;
-  margin: 0 200px 50px auto;
+  margin: 0 300px 50px auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
+  .content__container {
+    margin: 40px 30px 20px 30px;
+  }
   .finish-button {
     margin: 0 auto 50px auto;
   }
