@@ -1,6 +1,17 @@
 # css-gallary
+---
+
+'''
+##「プログラミング学習 ×　ゲーム」
+CSSを書いてイラストを作成できたらクリアです。
+レスポンシブ対応しているので、スマボからもご確認いただけます。
+'''
 
 ![ReadMe](https://user-images.githubusercontent.com/97160510/165998300-01feb1dd-d823-4347-90c1-f451b58e3d7c.gif)
+
+![ReadMe](https://user-images.githubusercontent.com/97160510/166001575-6f8c088b-55c9-4b34-a9e6-5d691e1fed19.png)
+
+[プロダクトのリンクはこちら](https://css-gallary.web.app/)
 
 ## Project setup
 ```
