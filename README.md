@@ -1,5 +1,5 @@
 # css-gallary
-【プログラミング学習 × ゲーム】<br>
+###【プログラミング学習 × ゲーム】<br>
 CSSを書いてイラストを作成するゲームです。<br>
 レスポンシブ対応しているので、スマボからもご確認いただけます。
 ![ReadMe](https://user-images.githubusercontent.com/97160510/165998300-01feb1dd-d823-4347-90c1-f451b58e3d7c.gif)
