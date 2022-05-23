@@ -53,8 +53,8 @@ export default {
       Swal.fire({
         title: "新規登録",
         html:
-          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
-          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス", autoComplete="off", style="width: 350px" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)", autoComplete="off" style="width: 350px" >',
         showCancelButton: true,
         confirmButtonText: "go",
         preConfirm: () => {
@@ -73,11 +73,12 @@ export default {
               this.$router.push("/")
             })
             .catch((error) => {
+              const errorCode = error.code.substr(5)
               Swal.fire({
                 icon: "error",
                 title: "登録失敗",
               })
-              Swal.showValidationMessage(`Request failed: ${error.code}`)
+              Swal.showValidationMessage(`エラー内容: ${errorCode}`)
             })
         },
       })
@@ -86,8 +87,8 @@ export default {
       Swal.fire({
         title: "ログイン",
         html:
-          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス" style="width: 350px" >' +
-          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)" style="width: 350px" >',
+          '<input id="swal-input1" class="swal2-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]" placeholder="メールアドレス", autoComplete="off", style="width: 350px" >' +
+          '<input id="swal-input2" class="swal2-input" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード(半角英数6文字以上)", autoComplete="off", style="width: 350px" >',
         showCancelButton: true,
         confirmButtonText: "go",
         preConfirm: () => {
@@ -106,11 +107,12 @@ export default {
               this.$router.push("/")
             })
             .catch((error) => {
+              const errorCode = error.code.substr(5)
               Swal.fire({
                 icon: "error",
                 title: "認証失敗",
               })
-              Swal.showValidationMessage(`Request failed: ${error.code}`)
+              Swal.showValidationMessage(`エラー内容: ${errorCode}`)
             })
         },
       })
